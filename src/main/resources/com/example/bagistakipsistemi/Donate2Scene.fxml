@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="442.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bagistakipsistemi.Controllers.Donate2SceneController">
+    <children>
+        <FlowPane layoutX="77.0" layoutY="46.0" prefHeight="338.0" prefWidth="348.0" vgap="5.0">
+            <children>
+                <Label alignment="CENTER" prefHeight="55.0" prefWidth="450.0" text="BAĞIŞ OLUŞTUR" textAlignment="CENTER">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+                <FlowPane alignment="CENTER" hgap="10.0" prefHeight="42.0" prefWidth="435.0">
+               <children>
+                  <ChoiceBox prefHeight="20.0" prefWidth="266.0" />
+                  <Label text="*" textFill="#e80d0d">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+                </FlowPane>
+            <FlowPane alignment="CENTER" hgap="10.0" prefHeight="30.0" prefWidth="431.0">
+               <children>
+                  <ChoiceBox prefHeight="20.0" prefWidth="266.0" />
+                  <Label text=" " textFill="#e80d0d">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </FlowPane>
+                <FlowPane alignment="CENTER" hgap="42.0" prefHeight="29.0" prefWidth="417.0">
+                    <children>
+                        <TextField prefHeight="25.0" prefWidth="266.0" promptText="Hedef Miktar " />
+                    </children>
+                </FlowPane>
+                <FlowPane alignment="CENTER" hgap="10.0" prefHeight="112.0" prefWidth="443.0">
+                    <children>
+                        <TextField prefHeight="110.0" prefWidth="266.0" promptText="Açıklama" />
+                  <Label prefHeight="31.0" prefWidth="14.0" text="*" textFill="#e80d0d">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                    </children>
+                </FlowPane>
+                <FlowPane alignment="CENTER" hgap="20.0" prefHeight="26.0" prefWidth="453.0">
+                    <children>
+                        <Button mnemonicParsing="false" prefHeight="23.0" prefWidth="110.0" text="Bağış Oluştur" />
+                    </children>
+                </FlowPane>
+                <FlowPane alignment="CENTER" hgap="20.0" prefHeight="26.0" prefWidth="452.0">
+                    <children>
+                        <Button mnemonicParsing="false" prefHeight="23.0" prefWidth="110.0" text="Geri Dön" />
+                    </children>
+                </FlowPane>
+            </children>
+        </FlowPane>
+    </children>
+</AnchorPane>

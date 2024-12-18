@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bagistakipsistemi.Controllers.AdminManageSceneController">
+   <children>
+      <FlowPane layoutX="11.0" layoutY="32.0" prefHeight="311.0" prefWidth="577.0" vgap="8.0">
+         <children>
+            <Label fx:id="myTitleLabel" alignment="CENTER" prefHeight="49.0" prefWidth="575.0" text="Admin Yönetim Paneli">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <FlowPane alignment="CENTER" prefHeight="200.0" prefWidth="576.0">
+               <children>
+                  <ListView fx:id="myListView" prefHeight="200.0" prefWidth="200.0" />
+               </children>
+            </FlowPane>
+            <FlowPane alignment="CENTER" hgap="20.0" prefHeight="32.0" prefWidth="577.0">
+               <children>
+                  <Button fx:id="myButton1" mnemonicParsing="false" onAction="#fonk" prefHeight="23.0" prefWidth="110.0" text="Kullanıcıyı Sil" />
+               </children>
+            </FlowPane>
+            <FlowPane alignment="CENTER" hgap="20.0" prefHeight="32.0" prefWidth="578.0">
+               <children>
+                  <Button fx:id="myButton2" mnemonicParsing="false" prefHeight="23.0" prefWidth="110.0" text="Geri Dön" />
+               </children>
+            </FlowPane>
+         </children>
+      </FlowPane>
+   </children>
+</AnchorPane>
