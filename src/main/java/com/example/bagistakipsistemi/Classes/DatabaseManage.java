@@ -5,8 +5,9 @@ import java.nio.file.Paths;
 
 public class DatabaseManage {
     private final String Data_path = Paths.get(
-            System.getProperty("user.dir"), "src", "main", "java", "resources", "com", "example", "bagistakipsistemi", "Data.txt"
+            System.getProperty("user.dir"), "src", "main", "resources", "Data.txt"
     ).toString();
+
 
     public DatabaseManage() {
     }
@@ -16,8 +17,8 @@ public class DatabaseManage {
             BufferedWriter writer = new BufferedWriter(new FileWriter(Data_path, true));
             if(data instanceof IndividualUser){
                 String dataRecord = String.join(";", ((IndividualUser) data).getName(), ((IndividualUser) data).getSurname(),
-                        ((IndividualUser) data).getEmail(), Integer.toString(((IndividualUser) data).getTelephonenumber()), ((IndividualUser) data).getNickname(),
-                        ((IndividualUser) data).getPassword(), "individualuser");
+                        Integer.toString(((IndividualUser) data).getTelephonenumber()), ((IndividualUser) data).getNickname(),
+                        ((IndividualUser) data).getEmail(), ((IndividualUser) data).getPassword(), "individualuser");
                 writer.write(dataRecord);
             }
             else if(data instanceof InstutionalUser){
@@ -53,13 +54,13 @@ public class DatabaseManage {
             reader.close();
             for (String[] data : rawdatas) {
                 if(data[6].equals("individualuser")){
-                    datas.add(new IndividualUser(data[0], data[1], Integer.parseInt(data[3]), data[4], data[2], data[5]));
+                    datas.add(new IndividualUser(data[0], data[1], Integer.parseInt(data[2]), data[3], data[4], data[5]));
                 }
                 else if(data[6].equals("instutionaluser")){
                     datas.add(new Donate(data[0], data[1], data[2], data[3], data[4], Boolean.parseBoolean(data[5])));
                 }
                 else if(data[6].equals("donate")){
-                    datas.add(new InstutionalUser(data[0], data[1], data[3], data[4], data[2], data[5]));
+                    datas.add(new InstutionalUser(data[0], data[1], data[2], data[3], data[4], data[5]));
                 }
             }
         }
