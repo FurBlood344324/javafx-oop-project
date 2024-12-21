@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class InstituionalRegisterSceneController {
+public class InstutionalRegisterSceneController {
     @FXML
     private Label myTitleLabel;
 

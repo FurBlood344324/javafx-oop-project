@@ -28,16 +28,13 @@ public class LoginSceneController {
     private Button myLoginButton, myBackButton;
 
     private DatabaseManage d1 = new DatabaseManage();
-    private User user;
+    private Data user;
     private Scene scene;
     private Stage stage;
     private Parent root;
 
-    public User getUser() throws NullPointerException {
-        if(user != null) {
-            return user;
-        }
-        throw new NullPointerException();
+    public Data getUser() {
+        return user;
     }
 
     public void login(ActionEvent actionEvent) throws NullPointerException {
@@ -49,7 +46,7 @@ public class LoginSceneController {
             for(Data data : datas){
                 if(data instanceof IndividualUser || data instanceof InstutionalUser){
                     if(((User) data).getNickname().equals(nickname) && ((User) data).getPassword().equals(password)){
-                        user = (User) data;
+                        user = data;
                         switchtomainscene2(actionEvent);
                         isLogined = true;
                     }
@@ -75,7 +72,7 @@ public class LoginSceneController {
     }
 
     public void switchtomainscene2(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/bagistakipsistemi/MainScene2.fxml")));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/bagistakipsistemi/IndividualUserAccountSettingsScene.fxml")));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

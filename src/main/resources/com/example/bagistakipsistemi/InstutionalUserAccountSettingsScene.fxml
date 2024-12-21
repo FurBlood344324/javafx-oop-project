@@ -7,54 +7,58 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bagistakipsistemi.Controllers.AccountSceneController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bagistakipsistemi.Controllers.InstutionalUserAccountSceneController">
    <children>
-      <FlowPane layoutX="5.0" layoutY="30.0" prefHeight="340.0" prefWidth="591.0" vgap="5.0">
+      <FlowPane layoutX="5.0" layoutY="15.0" prefHeight="370.0" prefWidth="591.0" vgap="5.0">
          <children>
-            <Label alignment="CENTER" prefHeight="53.0" prefWidth="588.0" text="Hesap Ayarları">
+            <Label fx:id="myTitleLabel" alignment="CENTER" prefHeight="53.0" prefWidth="588.0" text="Hesap Ayarları">
                <font>
                   <Font size="25.0" />
                </font>
             </Label>
             <FlowPane alignment="CENTER" hgap="61.0" prefHeight="29.0" prefWidth="589.0">
                <children>
-                  <TextField promptText="Ad" />
+                  <TextField fx:id="myInstituionalNameTextField" promptText="Kurum Adı" />
                </children>
             </FlowPane>
             <FlowPane alignment="CENTER" hgap="42.0" prefHeight="29.0" prefWidth="589.0">
                <children>
-                  <TextField promptText="Soyad" />
+                  <TextField fx:id="myIBANnoTextField" promptText="IBAN" />
                </children>
             </FlowPane>
             <FlowPane alignment="CENTER" hgap="36.0" prefHeight="29.0" prefWidth="590.0">
                <children>
-                  <TextField promptText="Telefon" />
+                  <TextField fx:id="myExplanationTextField" promptText="Açıklama" />
                </children>
             </FlowPane>
             <FlowPane alignment="CENTER" hgap="34.0" prefHeight="29.0" prefWidth="590.0">
                <children>
-                  <TextField promptText="Kullanıcı Adı" />
+                  <TextField fx:id="myNicknameTextField" promptText="Kullanıcı Adı" />
                </children>
             </FlowPane>
             <FlowPane alignment="CENTER" hgap="12.0" prefHeight="29.0" prefWidth="591.0">
                <children>
-                  <TextField promptText="E-Posta" />
+                  <TextField fx:id="myEmailTextField" promptText="E-Posta" />
                </children>
             </FlowPane>
             <FlowPane alignment="CENTER" hgap="53.0" prefHeight="29.0" prefWidth="590.0">
                <children>
-                  <TextField prefHeight="26.0" prefWidth="151.0" promptText="Şifre" />
+                  <TextField fx:id="myPaswordTextField" prefHeight="26.0" prefWidth="151.0" promptText="Şifre" />
                </children>
             </FlowPane>
             <FlowPane alignment="CENTER" hgap="20.0" prefHeight="32.0" prefWidth="591.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="23.0" prefWidth="110.0" text="Düzenle" />
+                  <Button fx:id="myEditButton" mnemonicParsing="false" onAction="#edit" prefHeight="23.0" prefWidth="110.0" text="Düzenle" />
                </children>
             </FlowPane>
             <FlowPane alignment="CENTER" hgap="20.0" prefHeight="32.0" prefWidth="591.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="23.0" prefWidth="110.0" text="Hesabı Sil" textFill="RED" />
+                  <Button fx:id="myDeleteAccountButton" mnemonicParsing="false" onAction="#deleteaccount" prefHeight="23.0" prefWidth="110.0" text="Hesabı Sil" textFill="RED" />
+               </children>
+            </FlowPane>
+            <FlowPane alignment="CENTER" hgap="20.0" prefHeight="32.0" prefWidth="591.0">
+               <children>
+                  <Button fx:id="myBackButton" mnemonicParsing="false" onAction="#switchtomainscene2" prefHeight="23.0" prefWidth="110.0" text="Geri Dön" />
                </children>
             </FlowPane>
          </children>
