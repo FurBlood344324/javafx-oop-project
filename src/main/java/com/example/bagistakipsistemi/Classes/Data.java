@@ -1,4 +1,6 @@
 package com.example.bagistakipsistemi.Classes;
 
-abstract public class Data {
+public class Data {
+    public Data() {
+    }
 }

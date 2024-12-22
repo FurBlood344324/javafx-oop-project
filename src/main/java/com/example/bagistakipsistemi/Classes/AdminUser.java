@@ -1,10 +1,9 @@
 package com.example.bagistakipsistemi.Classes;
 
 public class AdminUser extends User {
-    //Kod ortamındaki bilgilerle giriş yapılabilecek sadece
+    private String dataType = "adminuser";
+
     public AdminUser() {
-        this.nickname = "furkan";
-        this.password = "1234";
     }
 
     public AdminUser(String nickname, String password) {
@@ -44,15 +43,11 @@ public class AdminUser extends User {
 
     @Override
     public String getDataType() {
-        return "admin";
+        return dataType;
     }
 
     @Override
     public void setDataType(String dataType) {
         this.dataType = dataType;
-    }
-
-    public AdminUser createNewAdminUser(String nickname, String password) {
-        return new AdminUser(nickname, password);
     }
 }

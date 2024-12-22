@@ -1,1 +1,5 @@
-Furkan;Kara;1234567;furkan;fksf@gmail.com;1234;individualuser
+0;0;0;furkan;0;1234;adminuser
+Furkan;Kara;1234567;furkan;fksf@gmail.com;12345;individualuser
+Kızılay;TR123456789;Yardım;kızıay;kızılay@gmail.com;12345;instutionaluser
+Furkan;Cevik;537287;Furblood;furkancevik181@gmail.com;Furkan2005;individualuser
+FurkanAS;TR1234;FurkanAS kurumudur;FurBlood;furkancevik182@gmail.com;Furkan2004;instutionaluser

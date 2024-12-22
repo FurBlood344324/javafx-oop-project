@@ -19,16 +19,15 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class IndividualUserAccountSceneController implements Initializable {
+public class AdminUserAccountSceneController implements Initializable {
     @FXML
     private Label myTitleLabel;
 
     @FXML
-    private TextField myNameTextField, mySurnameTextField, myTelnoTextField,
-            myNicknameTextField ,myEmailTextField, myPasswordTextField;
+    private TextField myNicknameTextField, myPasswordTextField;
 
     @FXML
-    private Button myEditButton, myDeleteAccountButton ,myBackButton;
+    private Button myEditButton, myDeleteButton, myBackButton;
 
     private ArrayList<TextField> textfields = new ArrayList<>();
     private DatabaseManage d1 = new DatabaseManage();
@@ -50,17 +49,9 @@ public class IndividualUserAccountSceneController implements Initializable {
                     break;
                 }
             }
-            myNameTextField.setText(currentuser.getDatavar1());
-            mySurnameTextField.setText(currentuser.getDatavar2());
-            myTelnoTextField.setText(currentuser.getDatavar3());
             myNicknameTextField.setText(currentuser.getNickname());
-            myEmailTextField.setText(currentuser.getEmail());
             myPasswordTextField.setText(currentuser.getPassword());
-            textfields.add(myNameTextField);
-            textfields.add(mySurnameTextField);
-            textfields.add(myTelnoTextField);
             textfields.add(myNicknameTextField);
-            textfields.add(myEmailTextField);
             textfields.add(myPasswordTextField);
         }
         catch(Exception e){
@@ -82,15 +73,12 @@ public class IndividualUserAccountSceneController implements Initializable {
                 ArrayList<Data> datas = d1.Read_data();
                 for(Data data : datas){
                     if(data instanceof IndividualUser){
-                        if(myNicknameTextField.getText().equals(((IndividualUser) data).getNickname())
-                            || myEmailTextField.getText().equals(((IndividualUser) data).getEmail())
-                            || Integer.parseInt(myTelnoTextField.getText()) == ((IndividualUser) data).getTelephonenumber()){
+                        if(myNicknameTextField.getText().equals(((IndividualUser) data).getNickname())){
                             isexist = true;
                         }
                     }
                     else if(data instanceof InstutionalUser){
-                        if(myNicknameTextField.getText().equals(((InstutionalUser) data).getNickname())
-                            || myEmailTextField.getText().equals(((InstutionalUser) data).getEmail())){
+                        if(myNicknameTextField.getText().equals(((InstutionalUser) data).getNickname())){
                             isexist = true;
                         }
                     }
@@ -109,23 +97,15 @@ public class IndividualUserAccountSceneController implements Initializable {
                 }
                 else{
                     for(Data data : datas) {
-                        if (data instanceof IndividualUser) {
-                            if (currentuser.getEmail().equals(((IndividualUser) data).getEmail())) {
-                                ((IndividualUser) data).setName(myNameTextField.getText());
-                                ((IndividualUser) data).setSurname(mySurnameTextField.getText());
-                                ((IndividualUser) data).setTelephonenumber(Integer.parseInt(myTelnoTextField.getText()));
-                                ((IndividualUser) data).setNickname(myNicknameTextField.getText());
-                                ((IndividualUser) data).setEmail(myEmailTextField.getText());
-                                ((IndividualUser) data).setPassword(myPasswordTextField.getText());
+                        if (data instanceof AdminUser) {
+                            if (currentuser.getNickname().equals(((AdminUser) data).getNickname())) {
+                                ((AdminUser) data).setNickname(myNicknameTextField.getText());
+                                ((AdminUser) data).setPassword(myPasswordTextField.getText());
                             }
                         }
                         else if(data instanceof CurrentUser){
-                            if(currentuser.getEmail().equals(((CurrentUser) data).getEmail())){
-                                ((CurrentUser) data).setDatavar1(myNameTextField.getText());
-                                ((CurrentUser) data).setDatavar2(mySurnameTextField.getText());
-                                ((CurrentUser) data).setDatavar3(myTelnoTextField.getText());
+                            if(currentuser.getNickname().equals(((CurrentUser) data).getNickname())){
                                 ((CurrentUser) data).setNickname(myNicknameTextField.getText());
-                                ((CurrentUser) data).setEmail(myEmailTextField.getText());
                                 ((CurrentUser) data).setPassword(myPasswordTextField.getText());
                             }
                         }
@@ -136,9 +116,6 @@ public class IndividualUserAccountSceneController implements Initializable {
             }
             else
                 throw new NullPointerException();
-        }
-        catch(NumberFormatException e){
-            System.out.println("Telefon alanina sayi giriniz!");
         }
         catch(NullPointerException e){
             System.out.println("Alanlari bos birakmayiniz!");
@@ -155,8 +132,8 @@ public class IndividualUserAccountSceneController implements Initializable {
         try{
             ArrayList<Data> datas = d1.Read_data();
             for(Data data : datas) {
-                if (data instanceof IndividualUser) {
-                    if(currentuser.getEmail().equals(((IndividualUser) data).getEmail())){
+                if (data instanceof AdminUser) {
+                    if(currentuser.getNickname().equals(((AdminUser) data).getNickname())){
                         d1.Delete_data(data, datas);
                         datas = d1.Read_data();
                         d1.Delete_data(currentuser, datas);
@@ -171,17 +148,17 @@ public class IndividualUserAccountSceneController implements Initializable {
         }
     }
 
-    public void switchtomainscene1(ActionEvent actionEvent) throws IOException {
+    public void switchtomainscene1(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/bagistakipsistemi/MainScene1.fxml")));
-        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
-    public void switchtomainscene2(ActionEvent actionEvent) throws IOException {
+    public void switchtomainscene2(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/bagistakipsistemi/MainScene2.fxml")));
-        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

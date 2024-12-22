@@ -21,7 +21,7 @@ public class InstutionalRegisterSceneController {
     private Label myTitleLabel;
 
     @FXML
-    private TextField myInstitutionNameTextField, myIbannoTextField, myExplanationTextField, myNicknameTexField,
+    private TextField myInstitutionNameTextField, myIbannoTextField, myExplanationTextField, myNicknameTextField,
             myEmailTextField, myPasswordTextField;
 
     @FXML
@@ -35,15 +35,16 @@ public class InstutionalRegisterSceneController {
 
     public void onRegisterButtonClicked(ActionEvent actionEvent) {
         boolean isBlank = false;
+        boolean isexist = false;
         textfields.add(myInstitutionNameTextField);
         textfields.add(myIbannoTextField);
         textfields.add(myExplanationTextField);
-        textfields.add(myNicknameTexField);
+        textfields.add(myNicknameTextField);
         textfields.add(myEmailTextField);
         textfields.add(myPasswordTextField);
         try{
-            InstutionalUser user = new InstutionalUser(myInstitutionNameTextField.getText(), myIbannoTextField.getText()
-            ,myExplanationTextField.getText(), myNicknameTexField.getText(), myEmailTextField.getText(),
+            InstutionalUser user = new InstutionalUser(myInstitutionNameTextField.getText(), myIbannoTextField.getText(),
+                    myExplanationTextField.getText(), myNicknameTextField.getText(), myEmailTextField.getText(),
                     myPasswordTextField.getText());
             for (TextField field : textfields) {
                 if(field.getText().isEmpty()){
@@ -52,14 +53,40 @@ public class InstutionalRegisterSceneController {
                 }
             }
             if(!isBlank){
-                d1.Save_to_data(user);
-                switchtomainscene1(actionEvent);
+                ArrayList<Data> datas = d1.Read_data();
+                for(Data data : datas){
+                    if(data instanceof IndividualUser){
+                        if(user.getEmail().equals(((IndividualUser) data).getEmail())
+                                || user.getNickname().equals(((IndividualUser) data).getNickname())){
+                            isexist = true;
+                        }
+                    }
+                    else if(data instanceof InstutionalUser){
+                        if(user.getEmail().equals(((InstutionalUser) data).getEmail())
+                                || user.getNickname().equals(((InstutionalUser) data).getNickname())){
+                            isexist = true;
+                        }
+                    }
+                    else if(data instanceof AdminUser){
+                        if(user.getNickname().equals(((AdminUser) data).getNickname())){
+                            isexist = true;
+                        }
+                    }
+                }
             }
             else
                 throw new NullPointerException();
+            if(isexist){
+                throw new IllegalArgumentException();
+            }
+            d1.Save_to_data(user);
+            switchtologinscene(actionEvent);
         }
         catch (NullPointerException e){
             System.out.println("Alanlari bos birakmayiniz!");
+        }
+        catch (IllegalArgumentException e){
+            System.out.println("Bu bilgilere sahip bir hesap var");
         }
         catch (Exception e){
             System.out.println("Error");
@@ -68,6 +95,14 @@ public class InstutionalRegisterSceneController {
 
     public void switchtomainscene1(ActionEvent actionEvent) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/bagistakipsistemi/MainScene1.fxml")));
+        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void switchtologinscene(ActionEvent actionEvent) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/bagistakipsistemi/LoginScene.fxml")));
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

@@ -5,6 +5,9 @@ public class IndividualUser extends User {
     private String surname;
     private int telephonenumber;
 
+    public IndividualUser(){
+    }
+
     public IndividualUser(String name, String surname, int telephonenumber, String nickname, String email, String password) {
         this.name = name;
         this.surname = surname;
