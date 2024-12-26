@@ -8,20 +8,17 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.shape.Rectangle?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bagistakipsistemi.Controllers.MainScene1Controller">
    <children>
       <FlowPane layoutX="153.0" layoutY="109.0" prefHeight="153.0" prefWidth="299.0" vgap="30.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="299.0" text="Bağış Yap" />
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="299.0" text="Bağış Olustur" />
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="298.0" text="Bagis Detaylari" />
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="298.0" text="TOP 10" />
+            <Button fx:id="donateButton" mnemonicParsing="false" onAction="#handleDonateButtonAction" prefHeight="26.0" prefWidth="299.0" text="Bağış Yap" />
+            <Button fx:id="createDonationButton" mnemonicParsing="false" onAction="#handleCreateDonationButtonAction" prefHeight="26.0" prefWidth="299.0" text="Bağış Olustur" />
+            <Button fx:id="donationDetailsButton" mnemonicParsing="false" onAction="#handleDonationDetailsButtonAction" prefHeight="26.0" prefWidth="298.0" text="Bagis Detaylari" />
+            <Button fx:id="top10Button" mnemonicParsing="false" onAction="#handleTop10ButtonAction" prefHeight="26.0" prefWidth="298.0" text="TOP 10" />
          </children>
       </FlowPane>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d7d9da" height="60.0" layoutX="197.0" layoutY="317.0" stroke="TRANSPARENT" strokeType="INSIDE" width="210.0" />
-      <Label alignment="CENTER" layoutX="205.0" layoutY="344.0" prefHeight="17.0" prefWidth="193.0" text="Uyari" />
       <FlowPane hgap="150.0" layoutX="2.0" layoutY="14.0" prefHeight="60.0" prefWidth="600.0">
          <children>
             <FlowPane alignment="CENTER" hgap="10.0" prefHeight="60.0" prefWidth="179.0">
@@ -36,14 +33,14 @@
             </FlowPane>
             <FlowPane alignment="CENTER" hgap="10.0" prefHeight="60.0" prefWidth="270.0">
                <children>
-                  <MenuButton mnemonicParsing="false" prefHeight="26.0" prefWidth="92.0" text="Kayit Ol">
+                  <MenuButton fx:id="registerButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="92.0" text="Kayit Ol">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="Bireysel" />
-                        <MenuItem mnemonicParsing="false" text="Kurumsal" />
+                        <MenuItem onAction="#handleRegisterMenuItemBireysel" text="Bireysel" />
+                        <MenuItem onAction="#handleRegisterMenuItemKurumsal" text="Kurumsal" />
                      </items>
                   </MenuButton>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="Giriş Yap" />
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" text="İletisim" />
+                  <Button fx:id="loginButton" mnemonicParsing="false" onAction="#handleLoginButtonAction" prefHeight="25.0" prefWidth="73.0" text="Giriş Yap" />
+                  <Button fx:id="contactButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" text="İletişim" />
                </children>
             </FlowPane>
          </children>

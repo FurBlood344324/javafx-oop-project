@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,7 +12,7 @@
 
 <AnchorPane prefHeight="556.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bagistakipsistemi.Controllers.Donate1_option_SceneController">
    <children>
-      <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="101.0" layoutY="78.0" prefHeight="400.0" prefWidth="400.0">
+      <GridPane alignment="CENTER" layoutX="101.0" layoutY="78.0" prefHeight="400.0" prefWidth="400.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -28,22 +29,46 @@
             <Label text="Kurban" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
             <Label text="Gıda" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
             <Label text="Afet" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
+            <Label text="Doğa" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
             <Label text="Sağlık" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
             <Label text="Su Kuyusu" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
-            <Label text="Label" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
-            <ImageView fitHeight="99.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Label text="Proje" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
+            <ImageView fx:id="GeneralImageView" fitHeight="99.0" fitWidth="115.0" onMouseClicked="#generalaction" onMouseEntered="#opacityincrease1" onMouseExited="#opacitydecrease1" opacity="0.6" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <image>
-                  <Image url="@../../../2057e0eecf792fb.jpg" />
+                  <Image url="@../../../image.png" />
                </image></ImageView>
-            <ImageView fitHeight="99.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <ImageView fitHeight="99.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <ImageView fitHeight="99.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <ImageView fitHeight="99.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <ImageView fitHeight="99.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <ImageView fitHeight="99.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-            <ImageView fitHeight="99.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-            <ImageView fitHeight="99.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <ImageView fx:id="EducationImageView" fitHeight="99.0" fitWidth="115.0" onMouseClicked="#educationaction" onMouseEntered="#opacityincrease2" onMouseExited="#opacitydecrease2" opacity="0.6" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <image>
+                  <Image url="@../../../image.png" />
+               </image></ImageView>
+            <ImageView fx:id="HealthImageView" fitHeight="99.0" fitWidth="115.0" onMouseClicked="#healthaction" onMouseEntered="#opacityincrease3" onMouseExited="#opacitydecrease3" opacity="0.6" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <image>
+                  <Image url="@../../../image.png" />
+               </image></ImageView>
+            <ImageView fx:id="SacrificeImageView" fitHeight="99.0" fitWidth="115.0" onMouseClicked="#sacrificeaction" onMouseEntered="#opacityincrease4" onMouseExited="#opacitydecrease4" opacity="0.6" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+               <image>
+                  <Image url="@../../../image.png" />
+               </image></ImageView>
+            <ImageView fx:id="FoodImageView" fitHeight="99.0" fitWidth="115.0" onMouseClicked="#foodaction" onMouseEntered="#opacityincrease5" onMouseExited="#opacitydecrease5" opacity="0.6" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+               <image>
+                  <Image url="@../../../image.png" />
+               </image></ImageView>
+            <ImageView fx:id="WaterWellImageView" fitHeight="99.0" fitWidth="115.0" onMouseClicked="#waterwellaction" onMouseEntered="#opacityincrease6" onMouseExited="#opacitydecrease6" opacity="0.6" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+               <image>
+                  <Image url="@../../../image.png" />
+               </image></ImageView>
+            <ImageView fx:id="DisasterImageView" fitHeight="99.0" fitWidth="115.0" onMouseClicked="#disasteraction" onMouseEntered="#opacityincrease7" onMouseExited="#opacitydecrease7" opacity="0.6" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+               <image>
+                  <Image url="@../../../image.png" />
+               </image></ImageView>
+            <ImageView fx:id="NatureImageView" fitHeight="99.0" fitWidth="115.0" onMouseClicked="#natureaction" onMouseEntered="#opacityincrease8" onMouseExited="#opacitydecrease8" opacity="0.6" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+               <image>
+                  <Image url="@../../../image.png" />
+               </image></ImageView>
+            <ImageView fx:id="ProjectImageView" fitHeight="99.0" fitWidth="115.0" onMouseClicked="#projectaction" onMouseEntered="#opacityincrease9" onMouseExited="#opacitydecrease9" opacity="0.6" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+               <image>
+                  <Image url="@../../../image.png" />
+               </image></ImageView>
          </children>
       </GridPane>
       <Label alignment="CENTER" layoutY="26.0" prefHeight="28.0" prefWidth="601.0" text="BAĞIŞ TÜRLERİ">
@@ -51,5 +76,6 @@
             <Font size="25.0" />
          </font>
       </Label>
+      <Button fx:id="myBackButton" layoutX="269.0" layoutY="488.0" mnemonicParsing="false" onAction="#switchToMainScene2" text="Geri Dön" />
    </children>
 </AnchorPane>

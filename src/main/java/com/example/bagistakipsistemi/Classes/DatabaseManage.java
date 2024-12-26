@@ -18,30 +18,33 @@ public class DatabaseManage {
             if(data instanceof IndividualUser){
                 String dataRecord = String.join(";", ((IndividualUser) data).getName(), ((IndividualUser) data).getSurname(),
                         Integer.toString(((IndividualUser) data).getTelephonenumber()), ((IndividualUser) data).getNickname(),
-                        ((IndividualUser) data).getEmail(), ((IndividualUser) data).getPassword(), ((IndividualUser) data).getDataType());
+                        ((IndividualUser) data).getEmail(), ((IndividualUser) data).getPassword(), ((IndividualUser) data).getDataType(),
+                        "0", "0", "0");
                 writer.write(dataRecord);
             }
             else if(data instanceof InstutionalUser){
                 String dataRecord = String.join(";", ((InstutionalUser) data).getInstitutionName(), ((InstutionalUser) data).getIBANNumber(),
                         ((InstutionalUser) data).getExplanation(), ((InstutionalUser) data).getNickname(), ((InstutionalUser) data).getEmail(),
-                        ((InstutionalUser) data).getPassword(), ((InstutionalUser) data).getDataType());
+                        ((InstutionalUser) data).getPassword(), ((InstutionalUser) data).getDataType(), "0", "0", "0");
                 writer.write(dataRecord);
             }
             else if(data instanceof Donate){
                 String dataRecord = String.join(";", ((Donate) data).getSenderName(), ((Donate) data).getSenderSurname(),
                         ((Donate) data).getInstutionName(), ((Donate) data).getDonateType(), ((Donate) data).getSpecialDonateType(),
-                        Boolean.toString(((Donate) data).getIsAnonym()), ((Donate) data).getDataType());
+                        Integer.toString(((Donate) data).getDonateAmount()), Integer.toString(((Donate) data).getGoalDonateAmount()),
+                        ((Donate) data).getExplanation(), Boolean.toString(((Donate) data).getIsAnonym()), ((Donate) data).getDataType());
                 writer.write(dataRecord);
             }
             else if(data instanceof AdminUser){
                 String dataRecord = String.join(";", "0", "0", "0", ((AdminUser) data).getNickname(),
-                        "0", ((AdminUser) data).getPassword(), ((AdminUser) data).getDataType());
+                        "0", ((AdminUser) data).getPassword(), ((AdminUser) data).getDataType(), "0", "0", "0");
                 writer.write(dataRecord);
             }
             else if(data instanceof CurrentUser){
                 String dataRecord = String.join(";", ((CurrentUser) data).getDatavar1(), ((CurrentUser) data).getDatavar2(),
                         ((CurrentUser) data).getDatavar3(), ((CurrentUser) data).getNickname(), ((CurrentUser) data).getEmail(),
-                        ((CurrentUser) data).getPassword(), ((CurrentUser) data).getDataType(), ((CurrentUser) data).getUserDataType());
+                        ((CurrentUser) data).getPassword(), ((CurrentUser) data).getDataType(), ((CurrentUser) data).getUserDataType(),
+                        "0", "0", "0");
                 writer.write(dataRecord);
             }
             writer.newLine();
@@ -60,7 +63,7 @@ public class DatabaseManage {
             BufferedReader reader = new BufferedReader(new FileReader(Data_path));
             String line;
             while ((line = reader.readLine()) != null) {
-                String[] data = line.split(";", 8);
+                String[] data = line.split(";", 10);
                 rawdatas.add(data);
             }
             reader.close();
@@ -71,8 +74,9 @@ public class DatabaseManage {
                 else if(data[6].equals("instutionaluser")){
                     datas.add(new InstutionalUser(data[0], data[1], data[2], data[3], data[4], data[5]));
                 }
-                else if(data[6].equals("donate")){
-                    datas.add(new Donate(data[0], data[1], data[2], data[3], data[4], Boolean.parseBoolean(data[5])));
+                else if(data[9].equals("donate")){
+                    datas.add(new Donate(data[0], data[1], data[2], data[3], data[4], Integer.parseInt(data[5]),
+                            Integer.parseInt(data[6]), data[7], Boolean.parseBoolean(data[8])));
                 }
                 else if(data[6].equals("adminuser")){
                     datas.add(new AdminUser(data[3], data[5]));
@@ -100,7 +104,8 @@ public class DatabaseManage {
                     }
                     String dataRecord = String.join(";", ((IndividualUser) data).getName(), ((IndividualUser) data).getSurname(),
                             Integer.toString(((IndividualUser) data).getTelephonenumber()), ((IndividualUser) data).getNickname(),
-                            ((IndividualUser) data).getEmail(), ((IndividualUser) data).getPassword(), ((IndividualUser) data).getDataType());
+                            ((IndividualUser) data).getEmail(), ((IndividualUser) data).getPassword(), ((IndividualUser) data).getDataType()
+                            , "0", "0", "0");
                     writer.write(dataRecord);
                     writer.newLine();
                 }
@@ -111,14 +116,23 @@ public class DatabaseManage {
                     }
                     String dataRecord = String.join(";", ((InstutionalUser) data).getInstitutionName(), ((InstutionalUser) data).getIBANNumber(),
                             ((InstutionalUser) data).getExplanation(), ((InstutionalUser) data).getNickname(), ((InstutionalUser) data).getEmail(),
-                            ((InstutionalUser) data).getPassword(), ((InstutionalUser) data).getDataType());
+                            ((InstutionalUser) data).getPassword(), ((InstutionalUser) data).getDataType(), "0", "0", "0");
                     writer.write(dataRecord);
                     writer.newLine();
                 }
                 else if(data instanceof Donate){
+                    if(data1 instanceof Donate){
+                        if(((Donate) data1).getInstutionName().equals(((Donate) data).getInstutionName()) &&
+                                ((Donate) data1).getDonateType().equals(((Donate) data).getDonateType()) &&
+                                ((Donate) data1).getSpecialDonateType().equals(((Donate) data).getSpecialDonateType()) &&
+                                ((Donate) data1).getGoalDonateAmount() == ((Donate) data).getGoalDonateAmount()){
+                            continue;
+                        }
+                    }
                     String dataRecord = String.join(";", ((Donate) data).getSenderName(), ((Donate) data).getSenderSurname(),
                             ((Donate) data).getInstutionName(), ((Donate) data).getDonateType(), ((Donate) data).getSpecialDonateType(),
-                            Boolean.toString(((Donate) data).getIsAnonym()), ((Donate) data).getDataType());
+                            Integer.toString(((Donate) data).getDonateAmount()), Integer.toString(((Donate) data).getGoalDonateAmount()),
+                            ((Donate) data).getExplanation(), Boolean.toString(((Donate) data).getIsAnonym()), ((Donate) data).getDataType());
                     writer.write(dataRecord);
                     writer.newLine();
                 }
@@ -127,7 +141,7 @@ public class DatabaseManage {
                         continue;
                     }
                     String dataRecord = String.join(";", "0", "0", "0", ((AdminUser) data).getNickname(),
-                            "0", ((AdminUser) data).getPassword(), ((AdminUser) data).getDataType());
+                            "0", ((AdminUser) data).getPassword(), ((AdminUser) data).getDataType(), "0", "0", "0");
                     writer.write(dataRecord);
                     writer.newLine();
                 }
@@ -137,7 +151,8 @@ public class DatabaseManage {
                     }
                     String dataRecord = String.join(";", ((CurrentUser) data).getDatavar1(), ((CurrentUser) data).getDatavar2(),
                             ((CurrentUser) data).getDatavar3(), ((CurrentUser) data).getNickname(), ((CurrentUser) data).getEmail(),
-                            ((CurrentUser) data).getPassword(), ((CurrentUser) data).getDataType(), ((CurrentUser) data).getUserDataType());
+                            ((CurrentUser) data).getPassword(), ((CurrentUser) data).getDataType(), ((CurrentUser) data).getUserDataType(),
+                            "0", "0", "0");
                     writer.write(dataRecord);
                     writer.newLine();
                 }

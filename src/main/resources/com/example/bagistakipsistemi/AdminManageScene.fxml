@@ -2,7 +2,8 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.text.Font?>
@@ -18,17 +19,22 @@
             </Label>
             <FlowPane alignment="CENTER" prefHeight="200.0" prefWidth="576.0">
                <children>
-                  <ListView fx:id="myListView" prefHeight="200.0" prefWidth="200.0" />
+                  <TableView fx:id="myTableView" prefHeight="200.0" prefWidth="319.0">
+                    <columns>
+                      <TableColumn fx:id="myNameTableColumn" prefWidth="159.0" text="Ad" />
+                        <TableColumn fx:id="myNicknameTableColumn" prefWidth="159.0" text="Kullanıcı Adı" />
+                    </columns>
+                  </TableView>
                </children>
             </FlowPane>
             <FlowPane alignment="CENTER" hgap="20.0" prefHeight="32.0" prefWidth="577.0">
                <children>
-                  <Button fx:id="myButton1" mnemonicParsing="false" onAction="#fonk" prefHeight="23.0" prefWidth="110.0" text="Kullanıcıyı Sil" />
+                  <Button fx:id="myDeleteButton" mnemonicParsing="false" onAction="#handleDeleteUser" prefHeight="23.0" prefWidth="110.0" text="Kullanıcıyı Sil" />
                </children>
             </FlowPane>
             <FlowPane alignment="CENTER" hgap="20.0" prefHeight="32.0" prefWidth="578.0">
                <children>
-                  <Button fx:id="myButton2" mnemonicParsing="false" prefHeight="23.0" prefWidth="110.0" text="Geri Dön" />
+                  <Button fx:id="myBackButton" mnemonicParsing="false" onAction="#handleBackButtonAction" prefHeight="23.0" prefWidth="110.0" text="Geri Dön" />
                </children>
             </FlowPane>
          </children>

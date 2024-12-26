@@ -8,25 +8,30 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="469.0" prefWidth="619.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bagistakipsistemi.Controllers.Top10SceneController">
+<AnchorPane prefHeight="469.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bagistakipsistemi.Controllers.Top10SceneController">
     <children>
-        <FlowPane layoutX="10.0" layoutY="16.0" prefHeight="400.0" prefWidth="599.0" vgap="5.0">
+        <FlowPane layoutX="13.0" layoutY="21.0" prefHeight="427.0" prefWidth="672.0" vgap="5.0">
             <children>
-                <Label alignment="CENTER" prefHeight="55.0" prefWidth="598.0" text="TOP 10" textAlignment="CENTER">
+                <Label fx:id="myTitleLabel" alignment="CENTER" prefHeight="55.0" prefWidth="674.0" text="TOP 10" textAlignment="CENTER">
                     <font>
                         <Font size="25.0" />
                     </font>
                 </Label>
-            <TableView prefHeight="337.0" prefWidth="599.0">
+            <TableView fx:id="myTableView" prefHeight="337.0" prefWidth="674.0">
               <columns>
-                <TableColumn prefWidth="186.0" text="Kurum Adı" />
-                <TableColumn prefWidth="118.0" text="Bağış Türü" />
-                  <TableColumn minWidth="0.0" prefWidth="142.0" text="Özel Bağış Türü" />
-                  <TableColumn prefWidth="152.0" text="Tamamlanan Kısım " />
+                <TableColumn fx:id="myNameSurnameColumn" prefWidth="176.0" text="Gönderenin Adı Soyadı" />
+                  <TableColumn fx:id="myInstituionNameColumn" prefWidth="120.0" text="Kurum Türü" />
+                <TableColumn fx:id="myDonateTypeColumn" prefWidth="118.0" text="Bağış Türü" />
+                  <TableColumn fx:id="mySpecialDonateTypeColumn" minWidth="0.0" prefWidth="120.0" text="Özel Bağış Türü" />
+                  <TableColumn fx:id="myDonateAmountColumn" prefWidth="139.0" text="Bağış Miktarı" />
               </columns>
             </TableView>
+            <FlowPane alignment="CENTER" prefHeight="25.0" prefWidth="674.0">
+               <children>
+                        <Button fx:id="myBackButton" mnemonicParsing="false" onAction="#switchToMainScene2" prefHeight="23.0" prefWidth="110.0" text="Geri Dön" />
+               </children>
+            </FlowPane>
             </children>
         </FlowPane>
-            <Button layoutX="245.0" layoutY="430.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="110.0" text="Geri Dön" />
     </children>
 </AnchorPane>

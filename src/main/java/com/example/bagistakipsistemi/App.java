@@ -37,9 +37,9 @@ public class App extends Application {
 
     public void logout(Stage stage) throws IOException {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Logout");
-        alert.setHeaderText("You're logging out!");
-        alert.setContentText("Are you sure ?");
+        alert.setTitle("Cikis Ekrani");
+        alert.setHeaderText("Cikis Yapmak Uzeresin!");
+        alert.setContentText("Emin Misin ?");
 
         if(alert.showAndWait().get() == ButtonType.OK){
             ArrayList<Data> datas = d1.Read_data();

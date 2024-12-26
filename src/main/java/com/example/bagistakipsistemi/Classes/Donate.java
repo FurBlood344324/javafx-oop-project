@@ -6,24 +6,27 @@ public class Donate extends Data {
     private String InstutionName;
     private String DonateType;
     private String SpecialDonateType;
+    private int DonateAmount;
+    private int GoalDonateAmount;
+    private String Explanation;
     private Boolean isAnonym;
     private String dataType;
 
     public Donate() {
     }
 
-    public Donate(String SenderName, String SenderSurname, String instutionName, String donateType, Boolean isAnonym) {
+    public Donate(String SenderName, String SenderSurname, String instutionName, String donateType, String SpecialDonateType,
+                  int DonateAmount, int GoalDonateAmount, String Explanation, Boolean isAnonym) {
         this.SenderName = SenderName;
         this.SenderSurname = SenderSurname;
         this.InstutionName = instutionName;
         this.DonateType = donateType;
+        this.SpecialDonateType = SpecialDonateType;
+        this.DonateAmount = DonateAmount;
+        this.GoalDonateAmount = GoalDonateAmount;
+        this.Explanation = Explanation;
         this.isAnonym = isAnonym;
         this.dataType = "donate";
-    }
-
-    public Donate(String senderName, String senderSurname, String instutionName, String donateType, String specialDonateType, Boolean isAnonym) {
-        this(senderName, senderSurname, instutionName, donateType, isAnonym);
-        this.SpecialDonateType = specialDonateType;
     }
 
     public String getSenderName() {
@@ -72,6 +75,30 @@ public class Donate extends Data {
 
     public void setSpecialDonateType(String specialDonateType) {
         this.SpecialDonateType = specialDonateType;
+    }
+
+    public int getDonateAmount() {
+        return DonateAmount;
+    }
+
+    public void setDonateAmount(int donateAmount) {
+        this.DonateAmount = donateAmount;
+    }
+
+    public int getGoalDonateAmount() {
+        return GoalDonateAmount;
+    }
+
+    public void setGoalDonateAmount(int goalDonateAmount) {
+        this.GoalDonateAmount = goalDonateAmount;
+    }
+
+    public String getExplanation() {
+        return Explanation;
+    }
+
+    public void setExplanation(String explanation) {
+        this.Explanation = explanation;
     }
 
     public String getDataType() {

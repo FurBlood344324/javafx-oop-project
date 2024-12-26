@@ -1,5 +1,9 @@
-0;0;0;furkan;0;1234;adminuser
-Furkan;Kara;1234567;furkan;fksf@gmail.com;12345;individualuser
-Kızılay;TR123456789;Yardım;kızıay;kızılay@gmail.com;12345;instutionaluser
-Furkan;Cevik;537287;Furblood;furkancevik181@gmail.com;Furkan2005;individualuser
-FurkanAS;TR1234;FurkanAS kurumudur;FurBlood;furkancevik182@gmail.com;Furkan2004;instutionaluser
+0;0;0;a_furkan;0;1234;adminuser;0;0;0
+Furkan;Cevik;1234567;furkan;fksf@gmail.com;1234;individualuser;0;0;0
+Kızılay;TR123456789;Yardım;kızıay;kızılay@gmail.com;12345;instutionaluser;0;0;0
+Furkan;Cevik;537287;furkan1;furkancevik181@gmail.com;1234;individualuser;0;0;0
+0;0;Kızılay;Genel;Para;10000;100000;Bagis Atin pls;false;donate
+Furkan;Cevik;Kızılay;Genel;Para;10000;0;FURKAN CEVİK Deneme;false;donate
+Furkan;Cevik;Kızılay;Su Kuyusu;Özel Su Kuyusu;10000;0;FURKAN CEVİK Deneme;false;donate
+0;0;Kızılay;Su Kuyusu;Özel Su Kuyusu;110000;100000;Bagis atin pls;false;donate
+Furkan;Cevik;Kızılay;Su Kuyusu;Özel Su Kuyusu;10000;0;Deneme;true;donate
