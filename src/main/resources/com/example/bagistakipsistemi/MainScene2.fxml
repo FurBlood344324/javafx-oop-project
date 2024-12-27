@@ -8,39 +8,53 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bagistakipsistemi.Controllers.MainScene2Controller">
    <children>
+      <ImageView fitHeight="601.0" fitWidth="602.0" layoutY="-201.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../background.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="377.0" fitWidth="734.0" layoutX="-1.0" layoutY="-317.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../MenuStripBackground.jpg" />
+         </image>
+      </ImageView>
       <FlowPane layoutX="153.0" layoutY="116.0" prefHeight="153.0" prefWidth="299.0" vgap="30.0">
          <children>
-            <Button fx:id="donateButton" mnemonicParsing="false" onAction="#handleDonateButtonAction" prefHeight="26.0" prefWidth="299.0" text="Bağış Yap" />
-            <Button fx:id="createDonationButton" mnemonicParsing="false" onAction="#handleCreateDonationButtonAction" prefHeight="26.0" prefWidth="299.0" text="Bağış Olustur" />
-            <Button fx:id="donationDetailsButton" mnemonicParsing="false" onAction="#handleDonationDetailsButtonAction" prefHeight="26.0" prefWidth="298.0" text="Bagis Detaylari" />
-            <Button fx:id="top10Button" mnemonicParsing="false" onAction="#handleTop10ButtonAction" prefHeight="26.0" prefWidth="298.0" text="TOP 10" />
+            <Button fx:id="donateButton" mnemonicParsing="false" onAction="#handleDonateButtonAction" prefHeight="26.0" prefWidth="299.0" stylesheets="@../../../Button.css" text="BAPIŞ YAP" textFill="WHITE" />
+            <Button fx:id="createDonationButton" mnemonicParsing="false" onAction="#handleCreateDonationButtonAction" prefHeight="26.0" prefWidth="299.0" stylesheets="@../../../Button.css" text="BAĞIŞ OLUŞTUR" textFill="WHITE" />
+            <Button fx:id="donationDetailsButton" mnemonicParsing="false" onAction="#handleDonationDetailsButtonAction" prefHeight="26.0" prefWidth="298.0" stylesheets="@../../../Button.css" text="BAĞIŞ DETAYLARI" textFill="WHITE" />
+            <Button fx:id="top10Button" mnemonicParsing="false" onAction="#handleTop10ButtonAction" prefHeight="26.0" prefWidth="298.0" stylesheets="@../../../Button.css" text="TOP 10" textFill="WHITE" />
          </children>
       </FlowPane>
-      <FlowPane hgap="230.0" layoutX="2.0" layoutY="14.0" prefHeight="60.0" prefWidth="600.0">
+      <FlowPane hgap="10.0" prefHeight="60.0" prefWidth="600.0">
          <children>
-            <FlowPane alignment="CENTER" hgap="10.0" prefHeight="60.0" prefWidth="179.0">
+            <FlowPane alignment="CENTER" hgap="10.0" prefHeight="60.0" prefWidth="389.0">
                <children>
                   <ImageView fitHeight="54.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../2057e0eecf792fb.jpg" />
+                        <Image url="@../../../logo.png" />
                      </image>
                   </ImageView>
-                  <Label text="BagisTakipSistemi" />
+                  <Label prefHeight="29.0" prefWidth="317.0" stylesheets="@../../../Label.css" text="BAĞIŞ TAKİP SİSTEMİ" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
                </children>
             </FlowPane>
-            <FlowPane alignment="CENTER" hgap="10.0" prefHeight="60.0" prefWidth="188.0">
+            <FlowPane alignment="CENTER" hgap="10.0" prefHeight="60.0" prefWidth="195.0">
                <children>
-                  <MenuButton fx:id="accountMenuButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="92.0" text="Hesabım">
+                  <MenuButton fx:id="accountMenuButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="92.0" stylesheets="@../../../MenuButton.css" text="HESABIM" textFill="WHITE">
                      <items>
                         <MenuItem fx:id="AccountSettingsMenuItem" mnemonicParsing="false" onAction="#handleAccountSettingsButtonAction" text="Hesap Ayarları" />
                         <MenuItem mnemonicParsing="false" onAction="#handleAdminManageButtonAction" text="Admin Yönetim Sistemi" />
                         <MenuItem mnemonicParsing="false" onAction="#handleQuitButtonAction" text="Çıkış Yap" />
                      </items>
                   </MenuButton>
-                  <Button fx:id="contactButton" mnemonicParsing="false" onAction="#handleContactButtonAction" text="İletisim" />
+                  <Button fx:id="contactButton" mnemonicParsing="false" onAction="#handleContactButtonAction" stylesheets="@../../../Button.css" text="İLETİŞİM" textFill="WHITE" />
                </children>
             </FlowPane>
          </children>

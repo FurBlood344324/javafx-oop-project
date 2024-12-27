@@ -1,0 +1,7 @@
+.text-field {
+    -fx-font-family: 'Consolas';
+    -fx-font-size: 12px;
+    -fx-font-weight: Bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 6, 0.5, 1, 1);
+    -fx-cursor: hand;
+}

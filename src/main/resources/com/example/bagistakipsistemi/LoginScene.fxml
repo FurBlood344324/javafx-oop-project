@@ -3,34 +3,47 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bagistakipsistemi.Controllers.LoginSceneController">
    <children>
+      <ImageView fitHeight="630.0" fitWidth="644.0" layoutX="-30.0" layoutY="-230.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../background.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="258.0" layoutX="175.0" layoutY="83.0" stroke="BLACK" strokeType="INSIDE" width="250.0" />
       <FlowPane layoutX="126.0" layoutY="101.0" prefHeight="217.0" prefWidth="350.0">
          <children>
-            <Label fx:id="myTitleLabel" alignment="CENTER" prefHeight="55.0" prefWidth="348.0" text="Giriş Yap" textAlignment="CENTER" />
+            <Label fx:id="myTitleLabel" alignment="CENTER" prefHeight="55.0" prefWidth="348.0" stylesheets="@../../../Label.css" text="Giriş Yap" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
             <FlowPane alignment="CENTER" hgap="12.0" prefHeight="29.0" prefWidth="346.0">
                <children>
-                  <TextField fx:id="myNicknameTextField" promptText="Kullanıcı Adı" />
+                  <TextField fx:id="myNicknameTextField" prefHeight="25.0" prefWidth="189.0" promptText="Kullanıcı Adı" stylesheets="@../../../TextField.css" />
                </children>
             </FlowPane>
             <FlowPane alignment="CENTER" hgap="53.0" prefHeight="29.0" prefWidth="346.0">
                <children>
-                  <TextField fx:id="myPasswordTextField" promptText="Şifre" />
+                  <TextField fx:id="myPasswordTextField" prefHeight="25.0" prefWidth="189.0" promptText="Şifre" stylesheets="@../../../TextField.css" />
                </children>
             </FlowPane>
             <FlowPane alignment="CENTER" hgap="20.0" prefHeight="36.0" prefWidth="348.0">
                <children>
-                  <Button fx:id="myLoginButton" mnemonicParsing="false" onAction="#login" text="Giriş Yap" />
-                  <Button fx:id="myBackButton" mnemonicParsing="false" onAction="#switchtomainscene1" text="Geri Dön" />
+                  <Button fx:id="myLoginButton" mnemonicParsing="false" onAction="#login" stylesheets="@../../../Button.css" text="Giriş Yap" textFill="WHITE" />
+                  <Button fx:id="myBackButton" mnemonicParsing="false" onAction="#switchtomainscene1" stylesheets="@../../../Button.css" text="Geri Dön" textFill="WHITE" />
                </children>
             </FlowPane>
             <FlowPane alignment="CENTER" prefHeight="33.0" prefWidth="350.0">
                <children>
-                  <Label fx:id="myForgetPasswordLabel" alignment="CENTER" onMouseClicked="#switchtoforgetpasswordscene" onMouseEntered="#onMouseEntered1" onMouseExited="#onMouseExited1" prefHeight="23.0" prefWidth="91.0" text="Şifremi Unuttum" textFill="#161ef2">
+                  <Label fx:id="myForgetPasswordLabel" alignment="CENTER" onMouseClicked="#switchtoforgetpasswordscene" onMouseEntered="#onMouseEntered1" onMouseExited="#onMouseExited1" prefHeight="23.0" prefWidth="101.0" stylesheets="@../../../Label.css" text="Şifremi Unuttum" textFill="#161ef2">
                      <font>
                         <Font size="12.0" />
                      </font>
@@ -39,8 +52,8 @@
             </FlowPane>
             <FlowPane alignment="CENTER" prefHeight="33.0" prefWidth="350.0">
                <children>
-                  <Label fx:id="myLabel1" text="Hesabın Yok Mu ?" />
-                  <Label fx:id="myRegisterLabel" alignment="CENTER" onMouseClicked="#switchtoregisterscene" onMouseEntered="#onMouseEntered2" onMouseExited="#onMouseExited2" prefHeight="18.0" prefWidth="42.0" text="Kaydol" textFill="#161ef2">
+                  <Label fx:id="myLabel1" stylesheets="@../../../Label.css" text="Hesabın Yok Mu ?" />
+                  <Label fx:id="myRegisterLabel" alignment="CENTER" onMouseClicked="#switchtoregisterscene" onMouseEntered="#onMouseEntered2" onMouseExited="#onMouseExited2" prefHeight="18.0" prefWidth="49.0" stylesheets="@../../../Label.css" text="Kaydol" textFill="#161ef2">
                      <font>
                         <Font size="12.0" />
                      </font>

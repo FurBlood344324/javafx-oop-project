@@ -1,0 +1,22 @@
+.choice-box {
+    -fx-font-family: 'Consolas';
+    -fx-font-size: 14px;
+    -fx-font-weight: Bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 6, 0.5, 1, 1);
+    -fx-background-color: linear-gradient(to bottom, #c6cecf, #a9b0b0);
+    -fx-cursor: hand;
+}
+
+.choice-box:pressed {
+    -fx-font-family: 'Consolas';
+    -fx-font-size: 14px;
+    -fx-text-fill: gray;
+    -fx-font-weight: Bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0.2, 1, 1);
+    -fx-background-color: linear-gradient(to bottom, #b5bdbe, #98a9a9);
+}
+
+.choice-box:hover {
+    -fx-cursor: hand;
+    -fx-background-color: linear-gradient(to bottom, #b5bdbe, #98a9a9);
+}

@@ -4,31 +4,40 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="469.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bagistakipsistemi.Controllers.Top10SceneController">
+<AnchorPane prefHeight="588.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bagistakipsistemi.Controllers.Top10SceneController">
     <children>
-        <FlowPane layoutX="13.0" layoutY="21.0" prefHeight="427.0" prefWidth="672.0" vgap="5.0">
+      <ImageView fitHeight="820.0" fitWidth="830.0" layoutY="-231.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../background.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="487.0" layoutX="22.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" width="778.0" />
+        <FlowPane layoutX="62.0" layoutY="81.0" prefHeight="427.0" prefWidth="672.0" vgap="10.0">
             <children>
-                <Label fx:id="myTitleLabel" alignment="CENTER" prefHeight="55.0" prefWidth="674.0" text="TOP 10" textAlignment="CENTER">
+                <Label fx:id="myTitleLabel" alignment="CENTER" prefHeight="44.0" prefWidth="699.0" stylesheets="@../../../Label.css" text="TOP 10" textAlignment="CENTER">
                     <font>
                         <Font size="25.0" />
                     </font>
                 </Label>
-            <TableView fx:id="myTableView" prefHeight="337.0" prefWidth="674.0">
+            <TableView fx:id="myTableView" prefHeight="337.0" prefWidth="698.0" stylesheets="@../../../TableView.css">
               <columns>
-                <TableColumn fx:id="myNameSurnameColumn" prefWidth="176.0" text="Gönderenin Adı Soyadı" />
-                  <TableColumn fx:id="myInstituionNameColumn" prefWidth="120.0" text="Kurum Türü" />
-                <TableColumn fx:id="myDonateTypeColumn" prefWidth="118.0" text="Bağış Türü" />
-                  <TableColumn fx:id="mySpecialDonateTypeColumn" minWidth="0.0" prefWidth="120.0" text="Özel Bağış Türü" />
-                  <TableColumn fx:id="myDonateAmountColumn" prefWidth="139.0" text="Bağış Miktarı" />
+                <TableColumn fx:id="myNameSurnameColumn" prefWidth="187.0" text="Gönderenin Adı Soyadı" />
+                  <TableColumn fx:id="myInstituionNameColumn" prefWidth="124.0" text="Kurum Türü" />
+                <TableColumn fx:id="myDonateTypeColumn" prefWidth="114.0" text="Bağış Türü" />
+                  <TableColumn fx:id="mySpecialDonateTypeColumn" minWidth="0.0" prefWidth="136.0" text="Özel Bağış Türü" />
+                  <TableColumn fx:id="myDonateAmountColumn" prefWidth="136.0" text="Bağış Miktarı" />
               </columns>
             </TableView>
-            <FlowPane alignment="CENTER" prefHeight="25.0" prefWidth="674.0">
+            <FlowPane alignment="CENTER" prefHeight="25.0" prefWidth="698.0">
                <children>
-                        <Button fx:id="myBackButton" mnemonicParsing="false" onAction="#switchToMainScene2" prefHeight="23.0" prefWidth="110.0" text="Geri Dön" />
+                        <Button fx:id="myBackButton" mnemonicParsing="false" onAction="#switchToMainScene2" prefHeight="23.0" prefWidth="110.0" stylesheets="@../../../Button.css" text="Geri Dön" />
                </children>
             </FlowPane>
             </children>

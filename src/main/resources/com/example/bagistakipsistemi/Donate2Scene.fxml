@@ -4,47 +4,56 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="442.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bagistakipsistemi.Controllers.Donate2SceneController">
     <children>
+      <ImageView fitHeight="600.0" fitWidth="951.0" layoutY="-158.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../background.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="396.0" layoutX="126.0" layoutY="32.0" stroke="BLACK" strokeType="INSIDE" width="342.0" />
         <FlowPane layoutX="73.0" layoutY="46.0" prefHeight="350.0" prefWidth="424.0" vgap="7.0">
             <children>
-                <Label alignment="CENTER" prefHeight="50.0" prefWidth="455.0" text="BAĞIŞ OLUŞTUR" textAlignment="CENTER">
+                <Label alignment="CENTER" prefHeight="50.0" prefWidth="455.0" stylesheets="@../../../Label.css" text="BAĞIŞ OLUŞTUR" textAlignment="CENTER">
                <font>
                   <Font size="25.0" />
                </font>
             </Label>
                 <FlowPane alignment="CENTER" prefHeight="35.0" prefWidth="455.0">
                <children>
-                  <ChoiceBox fx:id="myDonateTypeChoiceBox" prefHeight="20.0" prefWidth="266.0" />
+                  <ChoiceBox fx:id="myDonateTypeChoiceBox" prefHeight="20.0" prefWidth="266.0" stylesheets="@../../../ChoiceBox.css" />
                </children>
                 </FlowPane>
             <FlowPane alignment="CENTER" prefHeight="30.0" prefWidth="455.0">
                <children>
-                  <ChoiceBox fx:id="mySpDonateTypeChoiceBox" prefHeight="20.0" prefWidth="266.0" />
+                  <ChoiceBox fx:id="mySpDonateTypeChoiceBox" prefHeight="20.0" prefWidth="266.0" stylesheets="@../../../ChoiceBox.css" />
                </children>
             </FlowPane>
                 <FlowPane alignment="CENTER" prefHeight="29.0" prefWidth="455.0">
                     <children>
-                        <TextField fx:id="targetAmountText" prefHeight="25.0" prefWidth="266.0" promptText="Hedef Miktar " />
+                        <TextField fx:id="targetAmountText" prefHeight="25.0" prefWidth="266.0" promptText="Hedef Miktar " stylesheets="@../../../TextField.css" />
                     </children>
                 </FlowPane>
                 <FlowPane alignment="CENTER" prefHeight="112.0" prefWidth="455.0">
                     <children>
-                        <TextField fx:id="descriptionText" prefHeight="110.0" prefWidth="266.0" promptText="Açıklama" />
+                        <TextField fx:id="descriptionText" prefHeight="110.0" prefWidth="266.0" promptText="Açıklama" stylesheets="@../../../TextField.css" />
                     </children>
                 </FlowPane>
                 <FlowPane alignment="CENTER" prefHeight="26.0" prefWidth="455.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#saveDonationCollection" prefHeight="23.0" prefWidth="110.0" text="Bağış Oluştur" />
+                        <Button mnemonicParsing="false" onAction="#saveDonationCollection" prefHeight="27.0" prefWidth="120.0" stylesheets="@../../../Button.css" text="Bağış Oluştur" />
                     </children>
                 </FlowPane>
                 <FlowPane alignment="CENTER" prefHeight="26.0" prefWidth="455.0">
                     <children>
-                        <Button fx:id="myBackButton" mnemonicParsing="false" onAction="#switchToMainScene2" prefHeight="23.0" prefWidth="110.0" text="Geri Dön" />
+                        <Button fx:id="myBackButton" mnemonicParsing="false" onAction="#switchToMainScene2" prefHeight="23.0" prefWidth="120.0" stylesheets="@../../../Button.css" text="Geri Dön" />
                     </children>
                 </FlowPane>
             </children>

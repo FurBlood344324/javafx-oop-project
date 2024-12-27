@@ -8,10 +8,17 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="556.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bagistakipsistemi.Controllers.Donate1_option_SceneController">
    <children>
+      <ImageView fitHeight="601.0" fitWidth="601.0" layoutY="-45.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../background.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="529.0" layoutX="46.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" width="498.0" />
       <GridPane alignment="CENTER" layoutX="101.0" layoutY="78.0" prefHeight="400.0" prefWidth="400.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -24,58 +31,58 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Genel Bağış" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
-            <Label text="Eğitim" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
-            <Label text="Kurban" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
-            <Label text="Gıda" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
-            <Label text="Afet" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
-            <Label text="Doğa" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
-            <Label text="Sağlık" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
-            <Label text="Su Kuyusu" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
-            <Label text="Proje" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="135.0" stylesheets="@../../../Label.css" text="Genel Bağış" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="130.0" stylesheets="@../../../Label.css" text="Eğitim" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="133.0" stylesheets="@../../../Label.css" text="Kurban" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="133.0" stylesheets="@../../../Label.css" text="Gıda" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="134.0" stylesheets="@../../../Label.css" text="Afet" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="133.0" stylesheets="@../../../Label.css" text="Doğa" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="134.0" stylesheets="@../../../Label.css" text="Sağlık" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="137.0" stylesheets="@../../../Label.css" text="Su Kuyusu" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="137.0" stylesheets="@../../../Label.css" text="Proje" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
             <ImageView fx:id="GeneralImageView" fitHeight="99.0" fitWidth="115.0" onMouseClicked="#generalaction" onMouseEntered="#opacityincrease1" onMouseExited="#opacitydecrease1" opacity="0.6" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <image>
-                  <Image url="@../../../image.png" />
+                  <Image url="@../../../Money.png" />
                </image></ImageView>
             <ImageView fx:id="EducationImageView" fitHeight="99.0" fitWidth="115.0" onMouseClicked="#educationaction" onMouseEntered="#opacityincrease2" onMouseExited="#opacitydecrease2" opacity="0.6" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <image>
-                  <Image url="@../../../image.png" />
+                  <Image url="@../../../Education.png" />
                </image></ImageView>
             <ImageView fx:id="HealthImageView" fitHeight="99.0" fitWidth="115.0" onMouseClicked="#healthaction" onMouseEntered="#opacityincrease3" onMouseExited="#opacitydecrease3" opacity="0.6" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <image>
-                  <Image url="@../../../image.png" />
+                  <Image url="@../../../Health.png" />
                </image></ImageView>
             <ImageView fx:id="SacrificeImageView" fitHeight="99.0" fitWidth="115.0" onMouseClicked="#sacrificeaction" onMouseEntered="#opacityincrease4" onMouseExited="#opacitydecrease4" opacity="0.6" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <image>
-                  <Image url="@../../../image.png" />
+                  <Image url="@../../../Sacrifice.png" />
                </image></ImageView>
             <ImageView fx:id="FoodImageView" fitHeight="99.0" fitWidth="115.0" onMouseClicked="#foodaction" onMouseEntered="#opacityincrease5" onMouseExited="#opacitydecrease5" opacity="0.6" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <image>
-                  <Image url="@../../../image.png" />
+                  <Image url="@../../../Food.png" />
                </image></ImageView>
-            <ImageView fx:id="WaterWellImageView" fitHeight="99.0" fitWidth="115.0" onMouseClicked="#waterwellaction" onMouseEntered="#opacityincrease6" onMouseExited="#opacitydecrease6" opacity="0.6" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <ImageView fx:id="WaterWellImageView" fitHeight="99.0" fitWidth="124.0" onMouseClicked="#waterwellaction" onMouseEntered="#opacityincrease6" onMouseExited="#opacitydecrease6" opacity="0.6" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <image>
-                  <Image url="@../../../image.png" />
+                  <Image url="@../../../WaterWell.png" />
                </image></ImageView>
             <ImageView fx:id="DisasterImageView" fitHeight="99.0" fitWidth="115.0" onMouseClicked="#disasteraction" onMouseEntered="#opacityincrease7" onMouseExited="#opacitydecrease7" opacity="0.6" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <image>
-                  <Image url="@../../../image.png" />
+                  <Image url="@../../../Disaster.png" />
                </image></ImageView>
             <ImageView fx:id="NatureImageView" fitHeight="99.0" fitWidth="115.0" onMouseClicked="#natureaction" onMouseEntered="#opacityincrease8" onMouseExited="#opacitydecrease8" opacity="0.6" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <image>
-                  <Image url="@../../../image.png" />
+                  <Image url="@../../../Nature.png" />
                </image></ImageView>
             <ImageView fx:id="ProjectImageView" fitHeight="99.0" fitWidth="115.0" onMouseClicked="#projectaction" onMouseEntered="#opacityincrease9" onMouseExited="#opacitydecrease9" opacity="0.6" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <image>
-                  <Image url="@../../../image.png" />
+                  <Image url="@../../../Project.png" />
                </image></ImageView>
          </children>
       </GridPane>
-      <Label alignment="CENTER" layoutY="26.0" prefHeight="28.0" prefWidth="601.0" text="BAĞIŞ TÜRLERİ">
+      <Label alignment="CENTER" layoutY="26.0" prefHeight="51.0" prefWidth="601.0" stylesheets="@../../../Label.css" text="BAĞIŞ TÜRLERİ">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Button fx:id="myBackButton" layoutX="269.0" layoutY="488.0" mnemonicParsing="false" onAction="#switchToMainScene2" text="Geri Dön" />
+      <Button fx:id="myBackButton" layoutX="261.0" layoutY="487.0" mnemonicParsing="false" onAction="#switchToMainScene2" stylesheets="@../../../Button.css" text="Geri Dön" />
    </children>
 </AnchorPane>

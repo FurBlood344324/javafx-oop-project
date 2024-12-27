@@ -3,52 +3,65 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bagistakipsistemi.Controllers.InstutionalRegisterSceneController">
    <children>
+      <ImageView fitHeight="600.0" fitWidth="646.0" layoutY="-200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../background.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="355.0" layoutX="192.0" layoutY="30.0" stroke="BLACK" strokeType="INSIDE" width="211.0" />
       <FlowPane layoutX="126.0" layoutY="31.0" prefHeight="338.0" prefWidth="348.0" vgap="5.0">
          <children>
-            <Label fx:id="myTitleLabel" alignment="CENTER" prefHeight="55.0" prefWidth="348.0" text="Kurumsal Kayıt Ol" textAlignment="CENTER" />
+            <Label fx:id="myTitleLabel" alignment="CENTER" prefHeight="55.0" prefWidth="348.0" stylesheets="@../../../Label.css" text="Kurumsal Kayıt Ol" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
             <FlowPane alignment="CENTER" hgap="61.0" prefHeight="29.0" prefWidth="346.0">
                <children>
-                  <TextField fx:id="myInstitutionNameTextField" promptText="Kurum Adı" />
+                  <TextField fx:id="myInstitutionNameTextField" prefHeight="26.0" prefWidth="151.0" promptText="Kurum Adı" stylesheets="@../../../TextField.css" />
                </children>
             </FlowPane>
             <FlowPane alignment="CENTER" hgap="42.0" prefHeight="29.0" prefWidth="346.0">
                <children>
-                  <TextField fx:id="myIbannoTextField" promptText="IBAN" />
+                  <TextField fx:id="myIbannoTextField" prefHeight="26.0" prefWidth="151.0" promptText="IBAN" stylesheets="@../../../TextField.css" />
                </children>
             </FlowPane>
             <FlowPane alignment="CENTER" hgap="36.0" prefHeight="29.0" prefWidth="346.0">
                <children>
-                  <TextField fx:id="myExplanationTextField" promptText="Açıklama" />
+                  <TextField fx:id="myExplanationTextField" prefHeight="26.0" prefWidth="151.0" promptText="Açıklama" stylesheets="@../../../TextField.css" />
                </children>
             </FlowPane>
             <FlowPane alignment="CENTER" hgap="34.0" prefHeight="29.0" prefWidth="346.0">
                <children>
-                  <TextField fx:id="myNicknameTexField" promptText="Kullanıcı Adı" />
+                  <TextField fx:id="myNicknameTexField" prefHeight="26.0" prefWidth="151.0" promptText="Kullanıcı Adı" stylesheets="@../../../TextField.css" />
                </children>
             </FlowPane>
             <FlowPane alignment="CENTER" hgap="12.0" prefHeight="29.0" prefWidth="346.0">
                <children>
-                  <TextField fx:id="myEmailTextField" promptText="E-Posta" />
+                  <TextField fx:id="myEmailTextField" prefHeight="26.0" prefWidth="151.0" promptText="E-Posta" stylesheets="@../../../TextField.css" />
                </children>
             </FlowPane>
             <FlowPane alignment="CENTER" hgap="53.0" prefHeight="29.0" prefWidth="346.0">
                <children>
-                  <TextField fx:id="myPasswordTextField" prefHeight="26.0" prefWidth="151.0" promptText="Şifre" />
+                  <TextField fx:id="myPasswordTextField" prefHeight="26.0" prefWidth="151.0" promptText="Şifre" stylesheets="@../../../TextField.css" />
                </children>
             </FlowPane>
             <FlowPane alignment="CENTER" hgap="20.0" prefHeight="32.0" prefWidth="348.0">
                <children>
-                  <Button fx:id="myRegisterButton" mnemonicParsing="false" onAction="#onRegisterButtonClicked" prefHeight="23.0" prefWidth="110.0" text="Kayıt Ol" />
+                  <Button fx:id="myRegisterButton" mnemonicParsing="false" onAction="#onRegisterButtonClicked" prefHeight="23.0" prefWidth="110.0" stylesheets="@../../../Button.css" text="Kayıt Ol" />
                </children>
             </FlowPane>
             <FlowPane alignment="CENTER" hgap="20.0" prefHeight="31.0" prefWidth="348.0">
                <children>
-                  <Button fx:id="myBackButton" mnemonicParsing="false" onAction="#switchtomainscene1" prefHeight="23.0" prefWidth="110.0" text="Geri Dön" />
+                  <Button fx:id="myBackButton" mnemonicParsing="false" onAction="#switchtomainscene1" prefHeight="23.0" prefWidth="110.0" stylesheets="@../../../Button.css" text="Geri Dön" />
                </children>
             </FlowPane>
          </children>

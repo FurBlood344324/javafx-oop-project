@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,6 +18,8 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainScene1.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+        Image icon = new Image("logo.png");
+        stage.getIcons().add(icon);
         stage.setTitle("BagisTakipSistemi");
         stage.setScene(scene);
         stage.show();

@@ -5,27 +5,36 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="707.0" prefWidth="457.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bagistakipsistemi.Controllers.DonateDetailsSceneController">
     <children>
-        <Button fx:id="myBackButton" layoutX="355.0" layoutY="614.0" mnemonicParsing="false" onAction="#switchToMainScene2" prefHeight="23.0" prefWidth="110.0" text="Geri Dön" />
-          <TableView fx:id="donateTableView" layoutX="110.0" layoutY="99.0" prefHeight="339.0" prefWidth="601.0">
+      <ImageView fitHeight="820.0" fitWidth="1170.0" layoutY="-113.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../background.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="640.0" layoutX="55.0" layoutY="28.0" stroke="BLACK" strokeType="INSIDE" width="704.0" />
+        <Button fx:id="myBackButton" layoutX="355.0" layoutY="614.0" mnemonicParsing="false" onAction="#switchToMainScene2" prefHeight="23.0" prefWidth="110.0" stylesheets="@../../../Button.css" text="Geri Dön" />
+          <TableView fx:id="donateTableView" layoutX="95.0" layoutY="99.0" prefHeight="339.0" prefWidth="631.0" stylesheets="@../../../TableView.css">
               <columns>
                   <TableColumn fx:id="instutionColumn" prefWidth="186.0" text="Kurum Adı" />
                   <TableColumn fx:id="donateTypeColumn" prefWidth="118.0" text="Bağış Türü" />
                   <TableColumn fx:id="spDonateTypeColumn" minWidth="0.0" prefWidth="142.0" text="Özel Bağış Türü" />
-                  <TableColumn fx:id="donatorColumn" prefWidth="154.0" text="Toplanan Toplam Bağış" />
+                  <TableColumn fx:id="donatorColumn" prefWidth="184.0" text="Toplanan Toplam Bağış" />
               </columns>
           </TableView>
-      <Label alignment="CENTER" layoutY="49.0" prefHeight="36.0" prefWidth="820.0" text="BAĞIŞ DETAYLARI">
+      <Label alignment="CENTER" layoutY="49.0" prefHeight="36.0" prefWidth="820.0" stylesheets="@../../../Label.css" text="BAĞIŞ DETAYLARI">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="myInstituionNameChoiceBox" layoutX="176.0" layoutY="479.0" prefHeight="25.0" prefWidth="469.0" />
-      <ChoiceBox fx:id="myDonateTypeChoiceBox" layoutX="176.0" layoutY="523.0" prefHeight="25.0" prefWidth="469.0" />
-      <ChoiceBox fx:id="mySpecialDonateTypeChoiceBox" layoutX="176.0" layoutY="565.0" prefHeight="25.0" prefWidth="469.0" />
+      <ChoiceBox fx:id="myInstituionNameChoiceBox" layoutX="176.0" layoutY="479.0" prefHeight="25.0" prefWidth="469.0" stylesheets="@../../../ChoiceBox.css" />
+      <ChoiceBox fx:id="myDonateTypeChoiceBox" layoutX="176.0" layoutY="523.0" prefHeight="25.0" prefWidth="469.0" stylesheets="@../../../ChoiceBox.css" />
+      <ChoiceBox fx:id="mySpecialDonateTypeChoiceBox" layoutX="176.0" layoutY="565.0" prefHeight="25.0" prefWidth="469.0" stylesheets="@../../../ChoiceBox.css" />
     </children>
 </AnchorPane>

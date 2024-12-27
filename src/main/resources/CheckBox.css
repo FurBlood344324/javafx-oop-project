@@ -1,0 +1,7 @@
+.check-box {
+    -fx-font-family: 'Consolas';
+    -fx-font-size: 12px;
+    -fx-font-weight: Bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 3, 0.3, 0.6, 0.6);
+    -fx-cursor: hand;
+}
