@@ -3,43 +3,51 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bagistakipsistemi.Controllers.AdminUserAccountSceneController">
    <children>
+      <ImageView fitHeight="600.0" fitWidth="1258.0" layoutY="-200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../background.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="289.0" layoutX="162.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" width="273.0" />
       <FlowPane layoutX="5.0" layoutY="78.0" prefHeight="245.0" prefWidth="591.0" vgap="5.0">
          <children>
-            <Label fx:id="myTitleLabel" alignment="CENTER" prefHeight="53.0" prefWidth="588.0" text="Hesap Ayarları">
+            <Label fx:id="myTitleLabel" alignment="CENTER" prefHeight="53.0" prefWidth="588.0" stylesheets="@../../../Label.css" text="HESAP AYARLARI">
                <font>
-                  <Font size="25.0" />
+                  <Font size="14.0" />
                </font>
             </Label>
             <FlowPane alignment="CENTER" hgap="34.0" prefHeight="29.0" prefWidth="590.0">
                <children>
-                  <TextField fx:id="myNicknameTextField" prefHeight="25.0" prefWidth="155.0" promptText="Kullanıcı Adı" />
+                  <TextField fx:id="myNicknameTextField" prefHeight="25.0" prefWidth="155.0" promptText="Kullanıcı Adı" stylesheets="@../../../TextField.css" />
                </children>
             </FlowPane>
             <FlowPane alignment="CENTER" hgap="53.0" prefHeight="29.0" prefWidth="590.0">
                <children>
-                  <TextField fx:id="myPasswordTextField" prefHeight="25.0" prefWidth="155.0" promptText="Şifre" />
+                  <TextField fx:id="myPasswordTextField" prefHeight="25.0" prefWidth="155.0" promptText="Şifre" stylesheets="@../../../TextField.css" />
                </children>
             </FlowPane>
             <FlowPane alignment="CENTER" hgap="20.0" prefHeight="32.0" prefWidth="591.0">
                <children>
-                  <Button fx:id="myEditButton" mnemonicParsing="false" onAction="#editaccount" prefHeight="23.0" prefWidth="110.0" text="Düzenle" />
+                  <Button fx:id="myEditButton" mnemonicParsing="false" onAction="#editaccount" prefHeight="23.0" prefWidth="110.0" stylesheets="@../../../Button.css" text="Düzenle" />
                </children>
             </FlowPane>
             <FlowPane alignment="CENTER" hgap="20.0" prefHeight="32.0" prefWidth="591.0">
                <children>
-                  <Button fx:id="myDeleteAccountButton" mnemonicParsing="false" onAction="#deleteaccount" prefHeight="23.0" prefWidth="110.0" text="Hesabı Sil" textFill="RED" />
+                  <Button fx:id="myDeleteAccountButton" mnemonicParsing="false" onAction="#deleteaccount" prefHeight="23.0" prefWidth="110.0" stylesheets="@../../../Button.css" text="Hesabı Sil" textFill="RED" />
                </children>
             </FlowPane>
             <FlowPane alignment="CENTER" hgap="20.0" prefHeight="32.0" prefWidth="591.0">
                <children>
-                  <Button fx:id="myBackButton" mnemonicParsing="false" onAction="#switchtomainscene2" prefHeight="23.0" prefWidth="110.0" text="Geri Dön" />
+                  <Button fx:id="myBackButton" mnemonicParsing="false" onAction="#switchtomainscene2" prefHeight="23.0" prefWidth="110.0" stylesheets="@../../../Button.css" text="Geri Dön" />
                </children>
             </FlowPane>
          </children>

@@ -20,7 +20,7 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="258.0" layoutX="175.0" layoutY="83.0" stroke="BLACK" strokeType="INSIDE" width="250.0" />
       <FlowPane layoutX="126.0" layoutY="101.0" prefHeight="217.0" prefWidth="350.0">
          <children>
-            <Label fx:id="myTitleLabel" alignment="CENTER" prefHeight="55.0" prefWidth="348.0" stylesheets="@../../../Label.css" text="Giriş Yap" textAlignment="CENTER">
+            <Label fx:id="myTitleLabel" alignment="CENTER" prefHeight="55.0" prefWidth="348.0" stylesheets="@../../../Label.css" text="GİRİŞ YAP" textAlignment="CENTER">
                <font>
                   <Font size="14.0" />
                </font>

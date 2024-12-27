@@ -18,9 +18,9 @@
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="355.0" layoutX="192.0" layoutY="30.0" stroke="BLACK" strokeType="INSIDE" width="211.0" />
-      <FlowPane layoutX="126.0" layoutY="31.0" prefHeight="338.0" prefWidth="348.0" vgap="5.0">
+      <FlowPane layoutX="126.0" layoutY="39.0" prefHeight="338.0" prefWidth="348.0" vgap="5.0">
          <children>
-            <Label fx:id="myTitleLabel" alignment="CENTER" prefHeight="55.0" prefWidth="348.0" stylesheets="@../../../Label.css" text="Kurumsal Kayıt Ol" textAlignment="CENTER">
+            <Label fx:id="myTitleLabel" alignment="CENTER" prefHeight="42.0" prefWidth="348.0" stylesheets="@../../../Label.css" text="KURUMSAL KAYIT OL" textAlignment="CENTER">
                <font>
                   <Font size="14.0" />
                </font></Label>
