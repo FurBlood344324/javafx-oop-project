@@ -24,7 +24,7 @@
       </ImageView>
       <FlowPane layoutX="153.0" layoutY="116.0" prefHeight="153.0" prefWidth="299.0" vgap="30.0">
          <children>
-            <Button fx:id="donateButton" mnemonicParsing="false" onAction="#handleDonateButtonAction" prefHeight="26.0" prefWidth="299.0" stylesheets="@../../../Button.css" text="BAPIŞ YAP" textFill="WHITE" />
+            <Button fx:id="donateButton" mnemonicParsing="false" onAction="#handleDonateButtonAction" prefHeight="26.0" prefWidth="299.0" stylesheets="@../../../Button.css" text="BAĞIŞ YAP" textFill="WHITE" />
             <Button fx:id="createDonationButton" mnemonicParsing="false" onAction="#handleCreateDonationButtonAction" prefHeight="26.0" prefWidth="299.0" stylesheets="@../../../Button.css" text="BAĞIŞ OLUŞTUR" textFill="WHITE" />
             <Button fx:id="donationDetailsButton" mnemonicParsing="false" onAction="#handleDonationDetailsButtonAction" prefHeight="26.0" prefWidth="298.0" stylesheets="@../../../Button.css" text="BAĞIŞ DETAYLARI" textFill="WHITE" />
             <Button fx:id="top10Button" mnemonicParsing="false" onAction="#handleTop10ButtonAction" prefHeight="26.0" prefWidth="298.0" stylesheets="@../../../Button.css" text="TOP 10" textFill="WHITE" />
