@@ -72,7 +72,7 @@ public class AdminManageSceneController implements Initializable {
             myTableView.setItems(userdata);
         }
         catch (Exception e) {
-            System.out.println("Error");
+            showAlert("Hata", "Error!", AlertType.ERROR);
         }
     }
 
@@ -107,7 +107,7 @@ public class AdminManageSceneController implements Initializable {
                     }
                 }
                 catch (Exception e) {
-                    System.out.println("Error");
+                    showAlert("Hata", "Error!", AlertType.ERROR);
                 }
             }
         });
@@ -129,8 +129,7 @@ public class AdminManageSceneController implements Initializable {
             showAlert("Başarılı", "Kullanıcı başarıyla silindi.", AlertType.INFORMATION);
 
         } catch (Exception e) {
-            showAlert("Hata", "Kullanıcı silinirken bir hata oluştu!", AlertType.ERROR);
-            System.out.println("Error");
+            showAlert("Hata", "Error!", AlertType.ERROR);
         }
     }
 

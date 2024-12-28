@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -80,16 +81,17 @@ public class InstutionalRegisterSceneController {
                 throw new IllegalArgumentException();
             }
             d1.Save_to_data(user);
+            showAlert("Başarılı", "Başarılı bir şekilde kaydoldunuz", Alert.AlertType.CONFIRMATION);
             switchtologinscene(actionEvent);
         }
         catch (NullPointerException e){
-            System.out.println("Alanlari bos birakmayiniz!");
+            showAlert("Hata", "Alanlari bos birakmayiniz!", Alert.AlertType.ERROR);
         }
         catch (IllegalArgumentException e){
-            System.out.println("Bu bilgilere sahip bir hesap var");
+            showAlert("Hata", "Bu bilgilere sahip bir hesap var!", Alert.AlertType.ERROR);
         }
         catch (Exception e){
-            System.out.println("Error");
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
         }
     }
 
@@ -107,5 +109,13 @@ public class InstutionalRegisterSceneController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    private void showAlert(String title, String content, Alert.AlertType type) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 }

@@ -10,10 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -48,22 +45,27 @@ public class DonateDetailsSceneController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        instutionColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue()[0]));
-        donateTypeColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue()[1]));
-        spDonateTypeColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue()[2]));
-        donatorColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue()[3]));
+        try{
+            instutionColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue()[0]));
+            donateTypeColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue()[1]));
+            spDonateTypeColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue()[2]));
+            donatorColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue()[3]));
 
-        items = FXCollections.observableArrayList();
-        loadInstituionNameData();
-        loadDonateTypeData();
-        loadSpDonateTypeData();
-        loadData();
-        myInstituionNameChoiceBox.setOnShowing(event -> loadInstituionNameData());
-        myDonateTypeChoiceBox.setOnShowing(event -> loadDonateTypeData());
-        mySpecialDonateTypeChoiceBox.setOnShowing(event -> loadSpDonateTypeData());
-        myInstituionNameChoiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> loadData());
-        myDonateTypeChoiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> loadData());
-        mySpecialDonateTypeChoiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> loadData());
+            items = FXCollections.observableArrayList();
+            loadInstituionNameData();
+            loadDonateTypeData();
+            loadSpDonateTypeData();
+            loadData();
+            myInstituionNameChoiceBox.setOnShowing(event -> loadInstituionNameData());
+            myDonateTypeChoiceBox.setOnShowing(event -> loadDonateTypeData());
+            mySpecialDonateTypeChoiceBox.setOnShowing(event -> loadSpDonateTypeData());
+            myInstituionNameChoiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> loadData());
+            myDonateTypeChoiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> loadData());
+            mySpecialDonateTypeChoiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> loadData());
+        }
+        catch(Exception e){
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
+        }
     }
 
     public void loadData(){
@@ -94,7 +96,7 @@ public class DonateDetailsSceneController implements Initializable {
                 }
             }
         } catch (Exception e){
-            System.out.println("Error" + e.getMessage());
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
         }
     }
 
@@ -132,7 +134,7 @@ public class DonateDetailsSceneController implements Initializable {
             }
         }
         catch (Exception e){
-            System.out.println("Error");
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
         }
     }
 
@@ -168,7 +170,7 @@ public class DonateDetailsSceneController implements Initializable {
             }
         }
         catch (Exception e){
-            System.out.println("Error");
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
         }
     }
 
@@ -202,7 +204,7 @@ public class DonateDetailsSceneController implements Initializable {
             }
         }
         catch (Exception e){
-            System.out.println("Error");
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
         }
     }
 
@@ -214,5 +216,13 @@ public class DonateDetailsSceneController implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    private void showAlert(String title, String content, Alert.AlertType type) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 }

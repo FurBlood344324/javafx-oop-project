@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -44,9 +45,7 @@ public class IndividualRegisterSceneController {
         textfields.add(myEmailTextField);
         textfields.add(myPasswordTextField);
         try{
-            IndividualUser user = new IndividualUser(myNameTextField.getText(), mySurnameTextField.getText(),
-                    Integer.parseInt(myTelnoTextField.getText()), myNicknameTextField.getText(), myEmailTextField.getText(),
-                    myPasswordTextField.getText());
+            IndividualUser user = null;
             for (TextField field : textfields) {
                 if(field.getText().isEmpty()){
                     isBlank = true;
@@ -54,6 +53,9 @@ public class IndividualRegisterSceneController {
                 }
             }
             if(!isBlank){
+                user = new IndividualUser(myNameTextField.getText(), mySurnameTextField.getText(),
+                        Integer.parseInt(myTelnoTextField.getText()), myNicknameTextField.getText(), myEmailTextField.getText(),
+                        myPasswordTextField.getText());
                 ArrayList<Data> datas = d1.Read_data();
                 for(Data data : datas){
                     if(data instanceof IndividualUser){
@@ -82,19 +84,20 @@ public class IndividualRegisterSceneController {
                 throw new IllegalArgumentException();
             }
             d1.Save_to_data(user);
+            showAlert("Başarılı", "Başarılı bir şekilde kaydoldunuz", Alert.AlertType.CONFIRMATION);
             switchtologinscene(actionEvent);
         }
-        catch (NumberFormatException e){
-            System.out.println("Telefon Numarasini dogru bir sekilde giriniz!");
-        }
         catch (NullPointerException e){
-            System.out.println("Alanlari bos birakmayiniz!");
+            showAlert("Hata", "Alanlari bos birakmayiniz!", Alert.AlertType.ERROR);
+        }
+        catch (NumberFormatException e){
+            showAlert("Hata", "Telefon Numarasini dogru bir sekilde giriniz!", Alert.AlertType.ERROR);
         }
         catch (IllegalArgumentException e){
-            System.out.println("Bu bilgilere sahip bir hesap var");
+            showAlert("Hata", "Bu bilgilere sahip bir hesap var", Alert.AlertType.ERROR);
         }
         catch (Exception e){
-            System.out.println("Error");
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
         }
     }
 
@@ -112,5 +115,13 @@ public class IndividualRegisterSceneController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    private void showAlert(String title, String content, Alert.AlertType type) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 }

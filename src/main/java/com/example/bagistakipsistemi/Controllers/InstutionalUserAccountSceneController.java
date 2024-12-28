@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -63,7 +64,7 @@ public class InstutionalUserAccountSceneController implements Initializable {
             textfields.add(myPasswordTextField);
         }
         catch(Exception e){
-            System.out.println("Error");
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
         }
     }
 
@@ -129,6 +130,7 @@ public class InstutionalUserAccountSceneController implements Initializable {
                         }
                         d1.Save_to_data(data);
                     }
+                    showAlert("Başarılı", "Başarılı bir şekilde bilgilerinizi güncellediniz", Alert.AlertType.CONFIRMATION);
                     switchtomainscene2(event);
                 }
             }
@@ -136,13 +138,13 @@ public class InstutionalUserAccountSceneController implements Initializable {
                 throw new NullPointerException();
         }
         catch(NullPointerException e){
-            System.out.println("Alanlari bos birakmayiniz!");
+            showAlert("Hata", "Alanlari bos birakmayiniz!", Alert.AlertType.ERROR);
         }
         catch(IllegalArgumentException e){
-            System.out.println("Bu bilgilere sahip bir hesap var!");
+            showAlert("Hata", "Bu bilgilere sahip bir hesap var!", Alert.AlertType.ERROR);
         }
         catch(Exception e){
-            System.out.println("Error");
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
         }
     }
 
@@ -159,10 +161,11 @@ public class InstutionalUserAccountSceneController implements Initializable {
                     }
                 }
             }
+            showAlert("Başarılı", "Başarılı bir şekilde hesabınızı sildiniz", Alert.AlertType.CONFIRMATION);
             switchtomainscene1(event);
         }
         catch(Exception e){
-            System.out.println("Error");
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
         }
     }
 
@@ -180,5 +183,13 @@ public class InstutionalUserAccountSceneController implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    private void showAlert(String title, String content, Alert.AlertType type) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 }

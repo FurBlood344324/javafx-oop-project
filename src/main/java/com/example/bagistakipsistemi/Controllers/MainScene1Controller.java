@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.stage.Stage;
@@ -29,42 +30,22 @@ public class MainScene1Controller {
 
     @FXML
     void handleDonateButtonAction(ActionEvent event) {
-        try {
-            Stage stage = (Stage) donateButton.getScene().getWindow();
-            switchToScene("/com/example/bagistakipsistemi/Donate1_option_Scene.fxml", stage);
-        } catch (IOException e) {
-            System.out.println("Error");
-        }
+        showAlert("Hata", "Hesabınıza giriş yapmalısınız!", Alert.AlertType.ERROR);
     }
 
     @FXML
     void handleCreateDonationButtonAction(ActionEvent event) {
-        try {
-            Stage stage = (Stage) createDonationButton.getScene().getWindow();
-            switchToScene("/com/example/bagistakipsistemi/Donate2Scene.fxml", stage);
-        } catch (IOException e) {
-            System.out.println("Error");
-        }
+        showAlert("Hata", "Hesabınıza giriş yapmalısınız!", Alert.AlertType.ERROR);
     }
 
     @FXML
     void handleDonationDetailsButtonAction(ActionEvent event) {
-        try {
-            Stage stage = (Stage) donationDetailsButton.getScene().getWindow();
-            switchToScene("/com/example/bagistakipsistemi/DonateDetailsScene.fxml", stage);
-        } catch (IOException e) {
-            System.out.println("Error");
-        }
+        showAlert("Hata", "Hesabınıza giriş yapmalısınız!", Alert.AlertType.ERROR);
     }
 
     @FXML
     void handleTop10ButtonAction(ActionEvent event) {
-        try {
-            Stage stage = (Stage) top10Button.getScene().getWindow();
-            switchToScene("/com/example/bagistakipsistemi/Top10Scene.fxml", stage);
-        } catch (IOException e) {
-            System.out.println("Error");
-        }
+        showAlert("Hata", "Hesabınıza giriş yapmalısınız!", Alert.AlertType.ERROR);
     }
 
     @FXML
@@ -73,7 +54,7 @@ public class MainScene1Controller {
             Stage stage = (Stage) registerButton.getScene().getWindow();
             switchToScene("/com/example/bagistakipsistemi/IndividualRegisterScene.fxml", stage);
         } catch (IOException e) {
-            System.out.println("Error");
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
         }
     }
 
@@ -83,7 +64,7 @@ public class MainScene1Controller {
             Stage stage = (Stage) registerButton.getScene().getWindow();
             switchToScene("/com/example/bagistakipsistemi/InstutionalRegisterScene.fxml", stage);
         } catch (IOException e) {
-            System.out.println("Error");
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
         }
     }
 
@@ -93,7 +74,24 @@ public class MainScene1Controller {
             Stage stage = (Stage) loginButton.getScene().getWindow();
             switchToScene("/com/example/bagistakipsistemi/LoginScene.fxml", stage);
         } catch (IOException e) {
-            System.out.println("Error");
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
         }
+    }
+
+    @FXML
+    void handleContactButtonAction(ActionEvent event) {
+        try {
+            showAlert("İletişim", "İletişim Bilgilerimiz : bagistakipsistemi@gmail.com", Alert.AlertType.INFORMATION);
+        } catch (Exception e) {
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
+        }
+    }
+
+    private void showAlert(String title, String content, Alert.AlertType type) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 }

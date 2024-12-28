@@ -31,21 +31,51 @@ public class MainScene2Controller {
 
     @FXML
     private void handleDonateButtonAction(ActionEvent event) {
+        boolean isIndUser = false;
         try {
-            switchToScene("/com/example/bagistakipsistemi/Donate1_option_Scene.fxml");
+            ArrayList<Data> datas = d1.Read_data();
+            for (Data data : datas) {
+                if(data instanceof CurrentUser){
+                    if(((CurrentUser) data).getUserDataType().equals("individualuser")){
+                        isIndUser = true;
+                    }
+                }
+            }
+            if(isIndUser)
+                switchToScene("/com/example/bagistakipsistemi/Donate1_option_Scene.fxml");
+            else
+                throw new IllegalArgumentException();
+        }
+        catch (IllegalArgumentException e) {
+            showAlert("Hata", "Bireysel kullanici değilsiniz!", Alert.AlertType.ERROR);
         }
         catch (IOException e) {
-            System.out.println("Error");
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
         }
     }
 
     @FXML
     private void handleCreateDonationButtonAction(ActionEvent event) {
+        boolean isInsUser = false;
         try {
-            switchToScene("/com/example/bagistakipsistemi/Donate2Scene.fxml");
+            ArrayList<Data> datas = d1.Read_data();
+            for (Data data : datas) {
+                if(data instanceof CurrentUser){
+                    if(((CurrentUser) data).getUserDataType().equals("instutionaluser")){
+                        isInsUser = true;
+                    }
+                }
+            }
+            if(isInsUser)
+                switchToScene("/com/example/bagistakipsistemi/Donate2Scene.fxml");
+            else
+                throw new IllegalArgumentException();
+        }
+        catch (IllegalArgumentException e) {
+            showAlert("Hata", "Kurumsal kullanici değilsiniz!", Alert.AlertType.ERROR);
         }
         catch (IOException e) {
-            System.out.println("Error");
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
         }
     }
 
@@ -55,7 +85,7 @@ public class MainScene2Controller {
             switchToScene("/com/example/bagistakipsistemi/DonateDetailsScene.fxml");
         }
         catch (IOException e) {
-            System.out.println("Error");
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
         }
     }
 
@@ -65,7 +95,7 @@ public class MainScene2Controller {
             switchToScene("/com/example/bagistakipsistemi/Top10Scene.fxml");
         }
         catch (IOException e) {
-            System.out.println("Error");
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
         }
     }
 
@@ -90,7 +120,7 @@ public class MainScene2Controller {
             }
         }
         catch (IOException e) {
-            System.out.println("Error");
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
         }
     }
 
@@ -110,11 +140,11 @@ public class MainScene2Controller {
             else
                 throw new IllegalArgumentException();
         }
-        catch (IOException e) {
-            System.out.println("Error");
-        }
         catch (IllegalArgumentException e) {
-            System.out.println("Admin değilsiniz!");
+            showAlert("Hata", "Admin değilsiniz!", Alert.AlertType.ERROR);
+        }
+        catch (Exception e) {
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
         }
     }
 
@@ -138,13 +168,17 @@ public class MainScene2Controller {
             }
         }
         catch (Exception e) {
-            System.out.println("Error");
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
         }
     }
 
     @FXML
     private void handleContactButtonAction(ActionEvent event) {
-        System.out.println("Contact");
+        try {
+            showAlert("İletişim", "İletişim Bilgilerimiz : bagistakipsistemi@gmail.com", Alert.AlertType.INFORMATION);
+        } catch (Exception e) {
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
+        }
     }
 
     private void switchToScene(String fxmlFile) throws IOException {
@@ -154,5 +188,13 @@ public class MainScene2Controller {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    private void showAlert(String title, String content, Alert.AlertType type) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 }

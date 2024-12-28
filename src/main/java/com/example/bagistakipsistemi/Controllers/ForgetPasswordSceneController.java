@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -75,19 +76,20 @@ public class ForgetPasswordSceneController {
             else if(!isEqual){
                 throw new RuntimeException();
             }
+            showAlert("Başarılı", "Şirenizi başarılı bir şekilde değiştirdiniz", Alert.AlertType.CONFIRMATION);
             switchtologinscene(event);
         }
         catch(NullPointerException e){
-            System.out.println("Alanlari doldurunuz!");
+            showAlert("Hata", "Alanları doldurunuz!", Alert.AlertType.ERROR);
         }
         catch(IllegalArgumentException e){
-            System.out.println("Kullanici bulunamadi!");
+            showAlert("Hata", "Kullanıcı bulunamadı!", Alert.AlertType.ERROR);
         }
         catch (RuntimeException e) {
-            System.out.println("Sifreler ayni degil!");
+            showAlert("Hata", "Sifreler ayni degil!", Alert.AlertType.ERROR);
         }
         catch(Exception e){
-            System.out.println("Error");
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
         }
     }
 
@@ -98,5 +100,13 @@ public class ForgetPasswordSceneController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    private void showAlert(String title, String content, Alert.AlertType type) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 }

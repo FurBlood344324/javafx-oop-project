@@ -35,50 +35,62 @@ public class LoginSceneController {
 
     public void login(ActionEvent actionEvent) throws NullPointerException {
         boolean isLogined = false;
+        boolean isBlank = false;
         try{
             AdminUser adminUser = new AdminUser();
             String nickname = myNicknameTextField.getText();
             String password = myPasswordTextField.getText();
-            ArrayList<Data> datas = d1.Read_data();
-            for(Data data : datas){
-                if(data instanceof IndividualUser){
-                    if(((User) data).getNickname().equals(nickname) && ((User) data).getPassword().equals(password)){
-                        CurrentUser currentUser = new CurrentUser(((IndividualUser) data).getName(), ((IndividualUser) data).getSurname(),
-                                Integer.toString(((IndividualUser) data).getTelephonenumber()),((IndividualUser) data).getNickname(),
-                                ((IndividualUser) data).getEmail(), ((IndividualUser) data).getPassword(), ((IndividualUser) data).getDataType());
-                        d1.Save_to_data(currentUser);
-                        switchtomainscene2(actionEvent);
-                        isLogined = true;
+            if(nickname == null || nickname.isEmpty() || password == null || password.isEmpty()){
+                isBlank = true;
+            }
+            if(!isBlank){
+                ArrayList<Data> datas = d1.Read_data();
+                for(Data data : datas){
+                    if(data instanceof IndividualUser){
+                        if(((User) data).getNickname().equals(nickname) && ((User) data).getPassword().equals(password)){
+                            CurrentUser currentUser = new CurrentUser(((IndividualUser) data).getName(), ((IndividualUser) data).getSurname(),
+                                    Integer.toString(((IndividualUser) data).getTelephonenumber()),((IndividualUser) data).getNickname(),
+                                    ((IndividualUser) data).getEmail(), ((IndividualUser) data).getPassword(), ((IndividualUser) data).getDataType());
+                            d1.Save_to_data(currentUser);
+                            switchtomainscene2(actionEvent);
+                            isLogined = true;
+                        }
                     }
-                }
-                else if(data instanceof InstutionalUser){
-                    if(((User) data).getNickname().equals(nickname) && ((User) data).getPassword().equals(password)){
-                        CurrentUser currentUser = new CurrentUser(((InstutionalUser) data).getInstitutionName(), ((InstutionalUser) data).getIBANNumber(),
-                                ((InstutionalUser) data).getExplanation(),((InstutionalUser) data).getNickname(),
-                                ((InstutionalUser) data).getEmail(), ((InstutionalUser) data).getPassword(), ((InstutionalUser) data).getDataType());
-                        d1.Save_to_data(currentUser);
-                        switchtomainscene2(actionEvent);
-                        isLogined = true;
+                    else if(data instanceof InstutionalUser){
+                        if(((User) data).getNickname().equals(nickname) && ((User) data).getPassword().equals(password)){
+                            CurrentUser currentUser = new CurrentUser(((InstutionalUser) data).getInstitutionName(), ((InstutionalUser) data).getIBANNumber(),
+                                    ((InstutionalUser) data).getExplanation(),((InstutionalUser) data).getNickname(),
+                                    ((InstutionalUser) data).getEmail(), ((InstutionalUser) data).getPassword(), ((InstutionalUser) data).getDataType());
+                            d1.Save_to_data(currentUser);
+                            switchtomainscene2(actionEvent);
+                            isLogined = true;
+                        }
                     }
-                }
-                else if(data instanceof AdminUser){
-                    if(((AdminUser) data).getNickname().equals(nickname) && ((AdminUser) data).getPassword().equals(password)){
-                        CurrentUser currentUser = new CurrentUser("0", "0", "0", ((AdminUser) data).getNickname(),
-                                "0", ((AdminUser) data).getPassword(), ((AdminUser) data).getDataType());
-                        d1.Save_to_data(currentUser);
-                        switchtomainscene2(actionEvent);
-                        isLogined = true;
+                    else if(data instanceof AdminUser){
+                        if(((AdminUser) data).getNickname().equals(nickname) && ((AdminUser) data).getPassword().equals(password)){
+                            CurrentUser currentUser = new CurrentUser("0", "0", "0", ((AdminUser) data).getNickname(),
+                                    "0", ((AdminUser) data).getPassword(), ((AdminUser) data).getDataType());
+                            d1.Save_to_data(currentUser);
+                            isLogined = true;
+                            showAlert("Başarılı", "Başarılı bir şekilde giriş yaptınız", Alert.AlertType.CONFIRMATION);
+                            switchtomainscene2(actionEvent);
+                        }
                     }
                 }
             }
-            if(!isLogined)
+            else
                 throw new NullPointerException();
+            if(!isLogined)
+                throw new IllegalArgumentException();
         }
         catch (NullPointerException e){
-            System.out.println("Bilgileriniz yanlis");
+            showAlert("Hata", "Alanları doldurunuz!", Alert.AlertType.ERROR);
+        }
+        catch (IllegalArgumentException e){
+            showAlert("Hata", "Bilgileriniz yanlış!", Alert.AlertType.ERROR);
         }
         catch (Exception e){
-            System.out.println("Error");
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
         }
     }
 
@@ -118,6 +130,14 @@ public class LoginSceneController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    private void showAlert(String title, String content, Alert.AlertType type) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 
     @FXML

@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
@@ -60,7 +61,7 @@ public class Donate1SceneController implements Initializable {
             mySpDonateTypeChoiceBox.setOnShowing(event -> loadSpDonateTypeData());
         }
         catch(Exception e){
-            System.out.println("Error");
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
         }
     }
 
@@ -128,22 +129,18 @@ public class Donate1SceneController implements Initializable {
         }
     }
 
-    public void setDonateType(String donateType) {
-        this.donateType = donateType;
-    }
-
     @FXML
-    private void saveDonation(ActionEvent event) {
+    private void saveDonation(ActionEvent event) throws IOException {
 
         String selectedInst = myInstituionNameChoiceBox.getValue();
         String spdonatetype = mySpDonateTypeChoiceBox.getValue();
         String amountText = amountTextField.getText();
         String desc = aciklamaTextField.getText();
         Boolean isAnonym = checkAnonym.isSelected();
-
+        ArrayList<Data> datas = new ArrayList<>();
 
         try {
-            ArrayList<Data> datas = d1.Read_data();
+            datas = d1.Read_data();
             CurrentUser user = new CurrentUser();
             Donate donate;
             for (Data data : datas) {
@@ -172,9 +169,17 @@ public class Donate1SceneController implements Initializable {
             switchToMainScene2(event);
         }
         catch (NumberFormatException e) {
-            System.err.println("Tutar Gecersiz.");
+            d1.Clear_data();
+            for(Data data : datas){
+                d1.Save_to_data(data);
+            }
+            showAlert("Hata", "Girdiğiniz Tutar Geçersiz!", Alert.AlertType.ERROR);
         } catch (Exception e) {
-            System.out.println("Error");
+            d1.Clear_data();
+            for(Data data : datas){
+                d1.Save_to_data(data);
+            }
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
         }
     }
 
@@ -193,5 +198,13 @@ public class Donate1SceneController implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    private void showAlert(String title, String content, Alert.AlertType type) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 }

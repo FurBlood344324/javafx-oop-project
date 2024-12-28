@@ -54,7 +54,7 @@
                      </items>
                   </MenuButton>
                   <Button fx:id="loginButton" mnemonicParsing="false" onAction="#handleLoginButtonAction" prefHeight="27.0" prefWidth="100.0" stylesheets="@../../../Button.css" text="GİRİŞ YAP" textFill="WHITE" />
-                  <Button fx:id="contactButton" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" stylesheets="@../../../Button.css" text="İLETİŞİM" textFill="WHITE" />
+                  <Button fx:id="contactButton" mnemonicParsing="false" onAction="#handleContactButtonAction" prefHeight="27.0" prefWidth="90.0" stylesheets="@../../../Button.css" text="İLETİŞİM" textFill="WHITE" />
                </children>
             </FlowPane>
          </children>

@@ -7,10 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -45,14 +42,19 @@ public class Top10SceneController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        myNameSurnameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue()[0]));
-        myInstituionNameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue()[1]));
-        myDonateTypeColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue()[2]));
-        mySpecialDonateTypeColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue()[3]));
-        myDonateAmountColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue()[4]));
+        try{
+            myNameSurnameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue()[0]));
+            myInstituionNameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue()[1]));
+            myDonateTypeColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue()[2]));
+            mySpecialDonateTypeColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue()[3]));
+            myDonateAmountColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue()[4]));
 
-        items = FXCollections.observableArrayList();
-        loadData();
+            items = FXCollections.observableArrayList();
+            loadData();
+        }
+        catch (Exception e){
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
+        }
     }
 
     private void loadData() {
@@ -89,7 +91,7 @@ public class Top10SceneController implements Initializable {
             myTableView.setItems(items);
         }
         catch (Exception e) {
-            System.out.println("Error");
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
         }
     }
 
@@ -101,5 +103,13 @@ public class Top10SceneController implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    private void showAlert(String title, String content, Alert.AlertType type) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 }

@@ -8,11 +8,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -111,6 +111,7 @@ public class AdminUserAccountSceneController implements Initializable {
                         }
                         d1.Save_to_data(data);
                     }
+                    showAlert("Başarılı", "Başarılı bir şekilde bilgilerinizi güncellediniz", Alert.AlertType.INFORMATION);
                     switchtomainscene2(event);
                 }
             }
@@ -118,13 +119,13 @@ public class AdminUserAccountSceneController implements Initializable {
                 throw new NullPointerException();
         }
         catch(NullPointerException e){
-            System.out.println("Alanlari bos birakmayiniz!");
+            showAlert("Hata", "Alanlari bos birakmayiniz!", Alert.AlertType.ERROR);
         }
         catch(IllegalArgumentException e){
-            System.out.println("Bu bilgilere sahip bir hesap var!");
+            showAlert("Hata", "Bu bilgilere sahip bir hesap var!", Alert.AlertType.ERROR);
         }
         catch(Exception e){
-            System.out.println("Error");
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
         }
     }
 
@@ -141,10 +142,11 @@ public class AdminUserAccountSceneController implements Initializable {
                     }
                 }
             }
+            showAlert("Başarılı", "Başarılı bir şekilde hesabınızı sildiniz", Alert.AlertType.INFORMATION);
             switchtomainscene1(event);
         }
         catch(Exception e){
-            System.out.println("Error");
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
         }
     }
 
@@ -162,5 +164,13 @@ public class AdminUserAccountSceneController implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    private void showAlert(String title, String content, Alert.AlertType type) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 }

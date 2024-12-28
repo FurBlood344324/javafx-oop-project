@@ -8,12 +8,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -36,11 +36,16 @@ public class Donate2SceneController {
 
     @FXML
     public void initialize() {
-        items = FXCollections.observableArrayList();
-        loadDonateTypeData();
-        loadSpDonateTypeData();
-        myDonateTypeChoiceBox.setOnShowing(event -> loadDonateTypeData());
-        mySpDonateTypeChoiceBox.setOnShowing(event -> loadSpDonateTypeData());
+        try{
+            items = FXCollections.observableArrayList();
+            loadDonateTypeData();
+            loadSpDonateTypeData();
+            myDonateTypeChoiceBox.setOnShowing(event -> loadDonateTypeData());
+            mySpDonateTypeChoiceBox.setOnShowing(event -> loadSpDonateTypeData());
+        }
+        catch (Exception e){
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
+        }
     }
 
     public void loadDonateTypeData(){
@@ -66,7 +71,7 @@ public class Donate2SceneController {
             }
         }
         catch(Exception e){
-            System.out.println("Error");
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
         }
     }
 
@@ -113,7 +118,7 @@ public class Donate2SceneController {
             }
         }
         catch(Exception e){
-            System.out.println("Error");
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
         }
     }
 
@@ -132,14 +137,27 @@ public class Donate2SceneController {
             String description = descriptionText.getText();
             String targetamount = targetAmountText.getText();
 
+            if(selectedType == null || selectedType.equals("Bagis Turu Sec") || selectedSpType.equals("Ozel Bagis Turu Sec") ||
+                    selectedSpType == null || description == null || description.isEmpty() || targetamount == null ||
+                    targetamount.isEmpty() || targetamount.equals("0")){
+                throw new NullPointerException();
+            }
+
             Donate collectingDonate = new Donate("0", "0", currentUser.getDatavar1(), selectedType, selectedSpType,
                     0, Integer.parseInt(targetamount), description, false);
 
             db.Save_to_data(collectingDonate);
+            showAlert("Başarılı", "Başarılı bir şekilde bağış eklediniz", Alert.AlertType.CONFIRMATION);
             switchToMainScene2(event);
         }
+        catch (NullPointerException e){
+            showAlert("Hata", "Boş bir alan bırakmayınız!", Alert.AlertType.ERROR);
+        }
+        catch (NumberFormatException e){
+            showAlert("Hata", "Hatalı bir miktar girdiniz!", Alert.AlertType.ERROR);
+        }
         catch(Exception e){
-            System.out.println("Error");
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
         }
     }
 
@@ -151,5 +169,13 @@ public class Donate2SceneController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    private void showAlert(String title, String content, Alert.AlertType type) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 }

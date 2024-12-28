@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
@@ -34,15 +35,20 @@ public class Donate1_option_SceneController {
 
     @FXML
     public void DonateSelection(Event event, String type) throws IOException {
-        BufferedWriter writer = new BufferedWriter(new FileWriter(Data_path, true));
-        writer.write(type);
-        writer.close();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/bagistakipsistemi/Donate1Scene.fxml"));
-        Parent root = loader.load();
+        try{
+            BufferedWriter writer = new BufferedWriter(new FileWriter(Data_path, true));
+            writer.write(type);
+            writer.close();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/bagistakipsistemi/Donate1Scene.fxml"));
+            Parent root = loader.load();
 
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        }
+        catch (Exception e) {
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
+        }
     }
 
     @FXML
@@ -52,6 +58,14 @@ public class Donate1_option_SceneController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    private void showAlert(String title, String content, Alert.AlertType type) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 
     @FXML
