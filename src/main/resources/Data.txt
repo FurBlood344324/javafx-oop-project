@@ -9,3 +9,20 @@ Furkan;Çevik;Kızılay;Genel;Para;10000;0;FURKAN CEVİK Deneme;false;donate
 Furkan;Çevik;Kızılay;Su Kuyusu;Özel Su Kuyusu;10000;0;FURKAN CEVİK Deneme;false;donate
 0;0;Kızılay;Su Kuyusu;Özel Su Kuyusu;110000;100000;Bagis atin pls;false;donate
 Furkan;Cevik;Kızılay;Su Kuyusu;Özel Su Kuyusu;10000;0;Deneme;true;donate
+Furkan;Cevik;Kızılay;Su Kuyusu;Özel Su Kuyusu;20000;0;Deneme;true;donate
+Furkan;Cevik;Kızılay;Su Kuyusu;Özel Su Kuyusu;30000;0;Deneme;true;donate
+Furkan;Cevik;Kızılay;Su Kuyusu;Özel Su Kuyusu;40000;0;Deneme;true;donate
+Furkan;Cevik;Kızılay;Su Kuyusu;Özel Su Kuyusu;50000;0;Deneme;true;donate
+Furkan;Cevik;Kızılay;Su Kuyusu;Özel Su Kuyusu;60000;0;Deneme;true;donate
+Furkan;Cevik;Kızılay;Su Kuyusu;Özel Su Kuyusu;70000;0;Deneme;true;donate
+Furkan;Cevik;Kızılay;Su Kuyusu;Özel Su Kuyusu;80000;0;Deneme;true;donate
+Furkan;Cevik;Kızılay;Su Kuyusu;Özel Su Kuyusu;90000;0;Deneme;true;donate
+Furkan;Cevik;Kızılay;Su Kuyusu;Özel Su Kuyusu;100000;0;Deneme;true;donate
+Furkan;Cevik;Kızılay;Su Kuyusu;Özel Su Kuyusu;110000;0;Deneme;true;donate
+Furkan;Cevik;Kızılay;Su Kuyusu;Özel Su Kuyusu;120000;0;Deneme;true;donate
+Furkan;Cevik;Kızılay;Su Kuyusu;Özel Su Kuyusu;130000;0;Deneme;true;donate
+Furkan;Cevik;Kızılay;Su Kuyusu;Özel Su Kuyusu;140000;0;Deneme;true;donate
+Furkan;Cevik;Kızılay;Su Kuyusu;Özel Su Kuyusu;150000;0;Deneme;true;donate
+Furkan;Cevik;Kızılay;Su Kuyusu;Özel Su Kuyusu;160000;0;Deneme;true;donate
+Furkan;Cevik;Kızılay;Su Kuyusu;Özel Su Kuyusu;170000;0;Deneme;true;donate
+Furkan;Cevik;Kızılay;Su Kuyusu;Özel Su Kuyusu;180000;0;Deneme;true;donate

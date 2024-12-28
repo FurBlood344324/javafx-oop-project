@@ -61,6 +61,7 @@ public class Top10SceneController implements Initializable {
         try {
             ArrayList<Data> datas = db.Read_data();
             ArrayList<String[]> temp_items = new ArrayList<>();
+            ArrayList<String[]> temp_items2 = new ArrayList<>();
             for (Data data : datas) {
                 if(data instanceof Donate){
                     if(((Donate) data).getGoalDonateAmount() == 0){
@@ -87,7 +88,19 @@ public class Top10SceneController implements Initializable {
                     }
                 }
             }
-            items = FXCollections.observableArrayList(temp_items);
+            for (int i = 0; i < temp_items.size(); i++) {
+                for (int j = i + 1; j < temp_items.size(); j++) {
+                    if(Integer.parseInt(temp_items.get(i)[4]) < Integer.parseInt(temp_items.get(j)[4])){
+                        String[] temp = temp_items.get(i);
+                        temp_items.set(i, temp_items.get(j));
+                        temp_items.set(j, temp);
+                    }
+                }
+            }
+            for (int i = 0; i < 10; ++i){
+                temp_items2.add(temp_items.get(i));
+            }
+            items = FXCollections.observableArrayList(temp_items2);
             myTableView.setItems(items);
         }
         catch (Exception e) {
