@@ -43,6 +43,7 @@ public class DonateDetailsSceneController implements Initializable {
     private Parent root;
     private ObservableList<String> items;
 
+    // TableView'in sütunlarının bilgilerini girip load methodların ve onların listenerlarını çağırır
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try{
@@ -68,6 +69,7 @@ public class DonateDetailsSceneController implements Initializable {
         }
     }
 
+    // Girilen bilgilere göre anlık olarak Table View'e filtrelenmiş veriyi yükler
     public void loadData(){
         try{
             ArrayList<Data> datas = db.Read_data();
@@ -100,6 +102,7 @@ public class DonateDetailsSceneController implements Initializable {
         }
     }
 
+    // Kurumsal isim bilgilerini yükler
     public void loadInstituionNameData(){
         boolean isContain = false;
         try{
@@ -138,6 +141,7 @@ public class DonateDetailsSceneController implements Initializable {
         }
     }
 
+    // Bağış türlerini yükler
     public void loadDonateTypeData(){
         boolean isContain = false;
         try{
@@ -174,6 +178,7 @@ public class DonateDetailsSceneController implements Initializable {
         }
     }
 
+    // Özel bağış türlerini yükler
     public void loadSpDonateTypeData(){
         boolean isContain = false;
         try{
@@ -208,6 +213,7 @@ public class DonateDetailsSceneController implements Initializable {
         }
     }
 
+    // Ana Sayfa 2'ye gönderir
     @FXML
     public void switchToMainScene2(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource
@@ -218,6 +224,7 @@ public class DonateDetailsSceneController implements Initializable {
         stage.show();
     }
 
+    // MessageBox penceresi oluşturur ve girilen parametrelere göre onu şekillendirir
     private void showAlert(String title, String content, Alert.AlertType type) {
         Alert alert = new Alert(type);
         alert.setTitle(title);

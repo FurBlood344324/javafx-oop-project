@@ -29,6 +29,7 @@ public class MainScene2Controller {
     private Stage stage;
     private Parent root;
 
+    // Kullanıcının bireysel kullanıcı olup olmadığını test edip ona göre Bağış Yap Seçenekleri sahnesine gönderir
     @FXML
     private void handleDonateButtonAction(ActionEvent event) {
         boolean isIndUser = false;
@@ -54,6 +55,7 @@ public class MainScene2Controller {
         }
     }
 
+    // Kullanıcının kurumsal kullanıcı olup olmadığını test edip ona göre Bağış Oluştur sahnesine gönderir
     @FXML
     private void handleCreateDonationButtonAction(ActionEvent event) {
         boolean isInsUser = false;
@@ -79,6 +81,7 @@ public class MainScene2Controller {
         }
     }
 
+    // Bağış Detayları sahnesine gönderir
     @FXML
     private void handleDonationDetailsButtonAction(ActionEvent event) {
         try {
@@ -89,6 +92,7 @@ public class MainScene2Controller {
         }
     }
 
+    // Top 10 sahnesine gönderir
     @FXML
     private void handleTop10ButtonAction(ActionEvent event) {
         try {
@@ -99,6 +103,7 @@ public class MainScene2Controller {
         }
     }
 
+    // Kullanıcının kullanıcı türünü belirleyip onun hesap ayarları sahnesine gönderir
     @FXML
     private void handleAccountSettingsButtonAction(ActionEvent event) {
         try {
@@ -113,7 +118,7 @@ public class MainScene2Controller {
                 switchToScene("/com/example/bagistakipsistemi/IndividualUserAccountSettingsScene.fxml");
             }
             else if(usertype.equals("instutionaluser")){
-                switchToScene("/com/example/bagistakipsistemi/InstituionalUserAccountSettingsScene.fxml");
+                switchToScene("/com/example/bagistakipsistemi/InstutionalUserAccountSettingsScene.fxml");
             }
             else if(usertype.equals("adminuser")){
                 switchToScene("/com/example/bagistakipsistemi/AdminUserAccountSettingsScene.fxml");
@@ -148,6 +153,7 @@ public class MainScene2Controller {
         }
     }
 
+    // Kullanının hesabından çıkış yapmasını sağlar
     @FXML
     private void handleQuitButtonAction(ActionEvent event) {
         try {
@@ -172,6 +178,7 @@ public class MainScene2Controller {
         }
     }
 
+    // İletişim butonun basıldığında çalışır ve İletişim bilgilerini içeren bir messagebox oluşturur
     @FXML
     private void handleContactButtonAction(ActionEvent event) {
         try {
@@ -181,6 +188,7 @@ public class MainScene2Controller {
         }
     }
 
+    // Parametreye göre sahnelere gönderir
     private void switchToScene(String fxmlFile) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource
                 (fxmlFile)));
@@ -190,6 +198,7 @@ public class MainScene2Controller {
         stage.show();
     }
 
+    // MessageBox penceresi oluşturur ve girilen parametrelere göre onu şekillendirir
     private void showAlert(String title, String content, Alert.AlertType type) {
         Alert alert = new Alert(type);
         alert.setTitle(title);

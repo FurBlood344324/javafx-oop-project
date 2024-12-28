@@ -34,6 +34,7 @@ public class InstutionalRegisterSceneController {
     private Stage stage;
     private Parent root;
 
+    // Kullanıcıdan alınan bilgilere göre yeni bir hesap oluşturur ve bunu veritabanına kaydeder
     public void onRegisterButtonClicked(ActionEvent actionEvent) {
         boolean isBlank = false;
         boolean isexist = false;
@@ -95,6 +96,7 @@ public class InstutionalRegisterSceneController {
         }
     }
 
+    // Ana Sayfa 1'e gönderir
     public void switchtomainscene1(ActionEvent actionEvent) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/bagistakipsistemi/MainScene1.fxml")));
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
@@ -103,6 +105,7 @@ public class InstutionalRegisterSceneController {
         stage.show();
     }
 
+    // Giriş Yap sahnesine gönderir
     public void switchtologinscene(ActionEvent actionEvent) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/bagistakipsistemi/LoginScene.fxml")));
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
@@ -111,6 +114,7 @@ public class InstutionalRegisterSceneController {
         stage.show();
     }
 
+    // MessageBox penceresi oluşturur ve girilen parametrelere göre onu şekillendirir
     private void showAlert(String title, String content, Alert.AlertType type) {
         Alert alert = new Alert(type);
         alert.setTitle(title);

@@ -34,6 +34,7 @@ public class Donate2SceneController {
     private Stage stage;
     private Parent root;
 
+    // Load methodları ve onların listenerlarını çağırır
     @FXML
     public void initialize() {
         try{
@@ -48,6 +49,7 @@ public class Donate2SceneController {
         }
     }
 
+    // Bağış türü choicebox'ının bilgilerini yükler
     public void loadDonateTypeData(){
         try{
             ArrayList<String> temp_items = new ArrayList<>();
@@ -75,6 +77,7 @@ public class Donate2SceneController {
         }
     }
 
+    // Özel ağış türü choicebox'ının bilgilerini yükler
     public void loadSpDonateTypeData(){
         try{
             ArrayList<String> temp_items = new ArrayList<>();
@@ -122,6 +125,7 @@ public class Donate2SceneController {
         }
     }
 
+    // Girilen bilgiler bir bağış nesnesinde toplar ve onu veritabanına kaydeder
     public void saveDonationCollection(ActionEvent event) {
         try{
             ArrayList<Data> datas = db.Read_data();
@@ -161,6 +165,7 @@ public class Donate2SceneController {
         }
     }
 
+    // Ana Sayfa 2'ye gönderir
     @FXML
     public void switchToMainScene2(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource
@@ -171,6 +176,7 @@ public class Donate2SceneController {
         stage.show();
     }
 
+    // MessageBox penceresi oluşturur ve girilen parametrelere göre onu şekillendirir
     private void showAlert(String title, String content, Alert.AlertType type) {
         Alert alert = new Alert(type);
         alert.setTitle(title);

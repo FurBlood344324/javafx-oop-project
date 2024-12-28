@@ -36,6 +36,7 @@ public class AdminUserAccountSceneController implements Initializable {
     private Parent root;
     private CurrentUser currentuser;
 
+    // Veritabanından CurrentUser'ı çeker ve onun bilgileriyle textfieldları doldurur
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try{
@@ -55,10 +56,11 @@ public class AdminUserAccountSceneController implements Initializable {
             textfields.add(myPasswordTextField);
         }
         catch(Exception e){
-            System.out.println("Error");
+            showAlert("Hata", "Error!", Alert.AlertType.ERROR);
         }
     }
 
+    // Textfieldlardaki girilen bilgileri ile kullanıcının bilgilerini günceller ve veritabanına kaydeder
     public void editaccount(ActionEvent event) {
         boolean isBlank = false;
         boolean isexist = false;
@@ -129,6 +131,7 @@ public class AdminUserAccountSceneController implements Initializable {
         }
     }
 
+    // Kullanıcının giriş yapmış olduğu hesabın bilgilerini veritabanından siler ve ana sayfaya geri gönderir
     public void deleteaccount(ActionEvent event) {
         try{
             ArrayList<Data> datas = d1.Read_data();
@@ -150,6 +153,7 @@ public class AdminUserAccountSceneController implements Initializable {
         }
     }
 
+    // Ana Sayfa 1'e gönderir
     public void switchtomainscene1(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/bagistakipsistemi/MainScene1.fxml")));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -158,6 +162,7 @@ public class AdminUserAccountSceneController implements Initializable {
         stage.show();
     }
 
+    // Ana Sayfa 2'ye gönderir
     public void switchtomainscene2(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/bagistakipsistemi/MainScene2.fxml")));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -166,6 +171,7 @@ public class AdminUserAccountSceneController implements Initializable {
         stage.show();
     }
 
+    // MessageBox penceresi oluşturur ve girilen parametrelere göre onu şekillendirir
     private void showAlert(String title, String content, Alert.AlertType type) {
         Alert alert = new Alert(type);
         alert.setTitle(title);

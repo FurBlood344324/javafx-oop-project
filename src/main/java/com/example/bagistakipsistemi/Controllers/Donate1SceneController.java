@@ -47,6 +47,7 @@ public class Donate1SceneController implements Initializable {
             System.getProperty("user.dir"), "src", "main", "resources", "DonateTypeData.txt"
     ).toString();
 
+    // Geçici olan veritabanından veriyi çekip kaydeder ve load methodlarını ve onların listenerlarını çalıştırır
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try{
@@ -65,6 +66,7 @@ public class Donate1SceneController implements Initializable {
         }
     }
 
+    // Bağış türü choicebox'ının bilgilerini yükler
     private void loadInstituionNameData() {
         boolean isContain = false;
         try{
@@ -98,6 +100,7 @@ public class Donate1SceneController implements Initializable {
         }
     }
 
+    // Özel bağış türü choicebox'ının bilgilerini yükler
     private void loadSpDonateTypeData() {
         boolean isContain = false;
         try{
@@ -129,6 +132,7 @@ public class Donate1SceneController implements Initializable {
         }
     }
 
+    // Girilen bilgiler bir bağış nesnesinde toplar ve onu veritabanına kaydeder
     @FXML
     private void saveDonation(ActionEvent event) throws IOException {
 
@@ -183,6 +187,7 @@ public class Donate1SceneController implements Initializable {
         }
     }
 
+    // Ana Sayfa 1'e gönderir
     @FXML
     private void switchToDonate1_option_Scene(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/bagistakipsistemi/Donate1_option_Scene.fxml")));
@@ -192,6 +197,7 @@ public class Donate1SceneController implements Initializable {
         stage.show();
     }
 
+    // Ana Sayfa 2'ye gönderir
     private void switchToMainScene2(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/bagistakipsistemi/MainScene2.fxml")));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -200,6 +206,7 @@ public class Donate1SceneController implements Initializable {
         stage.show();
     }
 
+    // MessageBox penceresi oluşturur ve girilen parametrelere göre onu şekillendirir
     private void showAlert(String title, String content, Alert.AlertType type) {
         Alert alert = new Alert(type);
         alert.setTitle(title);

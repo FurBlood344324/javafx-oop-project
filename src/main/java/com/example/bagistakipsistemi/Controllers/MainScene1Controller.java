@@ -17,9 +17,8 @@ public class MainScene1Controller {
             ,contactButton;
     @FXML
     private MenuButton registerButton;
-    /**
-     * Sahne değiştirme metodu.
-     */
+
+    // Girilen parametreye göre sahneyi değiştirir
     private void switchToScene(String fxmlFile, Stage stage) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
         Parent root = loader.load();
@@ -28,26 +27,31 @@ public class MainScene1Controller {
         stage.show();
     }
 
+    // Bağış Yap butonuna basıldığında çalışır ve messagebox oluşturur
     @FXML
     void handleDonateButtonAction(ActionEvent event) {
         showAlert("Hata", "Hesabınıza giriş yapmalısınız!", Alert.AlertType.ERROR);
     }
 
+    // Bağış Oluştur butonuna basıldığında çalışır ve messagebox oluşturur
     @FXML
     void handleCreateDonationButtonAction(ActionEvent event) {
         showAlert("Hata", "Hesabınıza giriş yapmalısınız!", Alert.AlertType.ERROR);
     }
 
+    // Bağış Detayları butonuna basıldığında çalışır ve messagebox oluşturur
     @FXML
     void handleDonationDetailsButtonAction(ActionEvent event) {
         showAlert("Hata", "Hesabınıza giriş yapmalısınız!", Alert.AlertType.ERROR);
     }
 
+    // Top 10 butonuna basıldığında çalışır ve messagebox oluşturur
     @FXML
     void handleTop10ButtonAction(ActionEvent event) {
         showAlert("Hata", "Hesabınıza giriş yapmalısınız!", Alert.AlertType.ERROR);
     }
 
+    // Bireysel Kayıt ol butonuna basıldığında çalışır ve Bireysel Kayıt Ol sahnesine gönderir
     @FXML
     void handleRegisterMenuItemBireysel(ActionEvent event) {
         try {
@@ -58,6 +62,7 @@ public class MainScene1Controller {
         }
     }
 
+    // Kurumsal Kayıt ol butonuna basıldığında çalışır ve Kurumsal Kayıt Ol sahnesine gönderir
     @FXML
     void handleRegisterMenuItemKurumsal(ActionEvent event) {
         try {
@@ -68,6 +73,7 @@ public class MainScene1Controller {
         }
     }
 
+    // Giriş Yap butonuna basıldığında çalışır ve Giriş Yap sahnesine gönderir
     @FXML
     void handleLoginButtonAction(ActionEvent event) {
         try {
@@ -78,6 +84,7 @@ public class MainScene1Controller {
         }
     }
 
+    // İletişim butonuna basıldığında çalışır ve İletişim bilgilerini gösteren bir messagebox oluşturur
     @FXML
     void handleContactButtonAction(ActionEvent event) {
         try {
@@ -87,6 +94,7 @@ public class MainScene1Controller {
         }
     }
 
+    // MessageBox penceresi oluşturur ve girilen parametrelere göre onu şekillendirir
     private void showAlert(String title, String content, Alert.AlertType type) {
         Alert alert = new Alert(type);
         alert.setTitle(title);

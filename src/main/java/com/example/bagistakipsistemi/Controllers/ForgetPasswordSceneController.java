@@ -33,6 +33,7 @@ public class ForgetPasswordSceneController {
     private Stage stage;
     private Parent root;
 
+    // Kullanıcıdan alınan bilgileri doğrulayıp ona göre şifreyi günceller
     public void changepassword(ActionEvent event) {
         boolean isBlank = false;
         boolean isEqual = false;
@@ -93,6 +94,7 @@ public class ForgetPasswordSceneController {
         }
     }
 
+    // Giriş yap sahnesine gönderir
     public void switchtologinscene(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource
                 ("/com/example/bagistakipsistemi/LoginScene.fxml")));
@@ -102,6 +104,7 @@ public class ForgetPasswordSceneController {
         stage.show();
     }
 
+    // MessageBox penceresi oluşturur ve girilen parametrelere göre onu şekillendirir
     private void showAlert(String title, String content, Alert.AlertType type) {
         Alert alert = new Alert(type);
         alert.setTitle(title);

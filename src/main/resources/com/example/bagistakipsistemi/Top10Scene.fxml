@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="588.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bagistakipsistemi.Controllers.Top10SceneController">
+<AnchorPane prefHeight="588.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/19.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bagistakipsistemi.Controllers.Top10SceneController">
     <children>
       <ImageView fitHeight="820.0" fitWidth="830.0" layoutY="-231.0" pickOnBounds="true" preserveRatio="true">
          <image>

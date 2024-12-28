@@ -40,6 +40,7 @@ public class Top10SceneController implements Initializable {
     private Stage stage;
     private Parent root;
 
+    // TableView'in sütunlarının bilgilerini doldurur ve load metodunu çağırır
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try{
@@ -57,6 +58,7 @@ public class Top10SceneController implements Initializable {
         }
     }
 
+    // Veri Tabanından çekilen bilgilere göre en yüksek 10 bağış miktarı olan bağışı sıralayıp TableView'de gösterir
     private void loadData() {
         try {
             ArrayList<Data> datas = db.Read_data();
@@ -108,6 +110,7 @@ public class Top10SceneController implements Initializable {
         }
     }
 
+    // Ana Sayfa 2'ye gönderir
     @FXML
     public void switchToMainScene2(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource
@@ -118,6 +121,7 @@ public class Top10SceneController implements Initializable {
         stage.show();
     }
 
+    // MessageBox penceresi oluşturur ve girilen parametrelere göre onu şekillendirir
     private void showAlert(String title, String content, Alert.AlertType type) {
         Alert alert = new Alert(type);
         alert.setTitle(title);

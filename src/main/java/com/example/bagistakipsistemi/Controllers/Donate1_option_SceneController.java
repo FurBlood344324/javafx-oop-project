@@ -33,8 +33,9 @@ public class Donate1_option_SceneController {
             System.getProperty("user.dir"), "src", "main", "resources", "DonateTypeData.txt"
     ).toString();
 
+    // Seçilen bağış türünü geçici olan bir veritabanına kaydeder ve Bağış1 sahnesine geçer
     @FXML
-    public void DonateSelection(Event event, String type) throws IOException {
+    public void DonateSelection(Event event, String type) {
         try{
             BufferedWriter writer = new BufferedWriter(new FileWriter(Data_path, true));
             writer.write(type);
@@ -51,6 +52,7 @@ public class Donate1_option_SceneController {
         }
     }
 
+    // ana Sayfa 2'ye geçer
     @FXML
     public void switchToMainScene2(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/bagistakipsistemi/MainScene2.fxml")));
@@ -60,6 +62,7 @@ public class Donate1_option_SceneController {
         stage.show();
     }
 
+    // MessageBox penceresi oluşturur ve girilen parametrelere göre onu şekillendirir
     private void showAlert(String title, String content, Alert.AlertType type) {
         Alert alert = new Alert(type);
         alert.setTitle(title);
@@ -69,47 +72,47 @@ public class Donate1_option_SceneController {
     }
 
     @FXML
-    public void generalaction(MouseEvent event) throws IOException {
+    public void generalaction(MouseEvent event) {
         DonateSelection(event, "Genel");
     }
 
     @FXML
-    public void educationaction(MouseEvent event) throws IOException {
+    public void educationaction(MouseEvent event) {
         DonateSelection(event, "Egitim");
     }
 
     @FXML
-    public void healthaction(MouseEvent event) throws IOException {
+    public void healthaction(MouseEvent event) {
         DonateSelection(event, "Saglik");
     }
 
     @FXML
-    public void sacrificeaction(MouseEvent event) throws IOException {
+    public void sacrificeaction(MouseEvent event) {
         DonateSelection(event, "Kurban");
     }
 
     @FXML
-    public void foodaction(MouseEvent event) throws IOException {
+    public void foodaction(MouseEvent event) {
         DonateSelection(event, "Gida");
     }
 
     @FXML
-    public void waterwellaction(MouseEvent event) throws IOException {
+    public void waterwellaction(MouseEvent event) {
         DonateSelection(event, "Su Kuyusu");
     }
 
     @FXML
-    public void disasteraction(MouseEvent event) throws IOException {
+    public void disasteraction(MouseEvent event) {
         DonateSelection(event, "Afet");
     }
 
     @FXML
-    public void natureaction(MouseEvent event) throws IOException {
+    public void natureaction(MouseEvent event) {
         DonateSelection(event, "Doga");
     }
 
     @FXML
-    public void projectaction(MouseEvent event) throws IOException {
+    public void projectaction(MouseEvent event) {
         DonateSelection(event, "Proje");
     }
 

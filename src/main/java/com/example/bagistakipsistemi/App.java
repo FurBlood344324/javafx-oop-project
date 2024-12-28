@@ -22,7 +22,9 @@ public class App extends Application {
         stage.getIcons().add(icon);
         stage.setTitle("BagisTakipSistemi");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
+        //Kapanma İsteği Gönderildiğinde logout methodunu çağırır
         stage.setOnCloseRequest(event -> {
             event.consume();
             try{
@@ -38,6 +40,7 @@ public class App extends Application {
         launch();
     }
 
+    //Messagebox Oluşturup Kullanıcıya Çıkması Konusunda Soru Sorar ve CurrentUserları Veritabanından Siler
     public void logout(Stage stage) throws IOException {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Cikis Ekrani");

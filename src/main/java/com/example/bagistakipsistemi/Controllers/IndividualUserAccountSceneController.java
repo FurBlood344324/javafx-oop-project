@@ -38,6 +38,7 @@ public class IndividualUserAccountSceneController implements Initializable {
     private Parent root;
     private CurrentUser currentuser;
 
+    // Kullanıcının giriş yapmış olduğu hesabın bilgilerini veritabanından çeker ve onları textfield'lara aktarır
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try{
@@ -69,6 +70,7 @@ public class IndividualUserAccountSceneController implements Initializable {
         }
     }
 
+    // Kullanıcının girmiş olduğu bilgileri doğrulayıp ona göre hesabını günceller ve bunu veritabanına kaydeder
     public void editaccount(ActionEvent event) {
         boolean isBlank = false;
         boolean isexist = false;
@@ -153,6 +155,7 @@ public class IndividualUserAccountSceneController implements Initializable {
         }
     }
 
+    // Kullanıcının giriş yapmış olduğu hesabı siler ve bunu veritabanında da uygular
     public void deleteaccount(ActionEvent event) {
         try{
             ArrayList<Data> datas = d1.Read_data();
@@ -174,6 +177,7 @@ public class IndividualUserAccountSceneController implements Initializable {
         }
     }
 
+    // Ana Sayfa 1'e gönderir
     public void switchtomainscene1(ActionEvent actionEvent) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/bagistakipsistemi/MainScene1.fxml")));
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
@@ -182,6 +186,7 @@ public class IndividualUserAccountSceneController implements Initializable {
         stage.show();
     }
 
+    // Ana Sayfa 2'e gönderir
     public void switchtomainscene2(ActionEvent actionEvent) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/bagistakipsistemi/MainScene2.fxml")));
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
@@ -190,6 +195,7 @@ public class IndividualUserAccountSceneController implements Initializable {
         stage.show();
     }
 
+    // MessageBox penceresi oluşturur ve girilen parametrelere göre onu şekillendirir
     private void showAlert(String title, String content, Alert.AlertType type) {
         Alert alert = new Alert(type);
         alert.setTitle(title);

@@ -33,6 +33,7 @@ public class LoginSceneController {
     private Stage stage;
     private Parent root;
 
+    // Girilen bilgileri doğrulayıp ona göre kullanıcının giriş yapmasını sağlar
     public void login(ActionEvent actionEvent) throws NullPointerException {
         boolean isLogined = false;
         boolean isBlank = false;
@@ -94,6 +95,7 @@ public class LoginSceneController {
         }
     }
 
+    // Ana Sayfa 1'e gönderir
     public void switchtomainscene1(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource
                 ("/com/example/bagistakipsistemi/MainScene1.fxml")));
@@ -103,6 +105,7 @@ public class LoginSceneController {
         stage.show();
     }
 
+    // Ana Sayfa 2'ye gönderir
     public void switchtomainscene2(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource
                 ("/com/example/bagistakipsistemi/MainScene2.fxml")));
@@ -112,6 +115,7 @@ public class LoginSceneController {
         stage.show();
     }
 
+    // Şifremi Unuttum sahnesine gönderir
     @FXML
     public void switchtoforgetpasswordscene(MouseEvent event) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource
@@ -122,6 +126,7 @@ public class LoginSceneController {
         stage.show();
     }
 
+    // Kayıt ol sahnesine gönderir
     @FXML
     public void switchtoregisterscene(MouseEvent event) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource
@@ -132,6 +137,7 @@ public class LoginSceneController {
         stage.show();
     }
 
+    // MessageBox penceresi oluşturur ve girilen parametrelere göre onu şekillendirir
     private void showAlert(String title, String content, Alert.AlertType type) {
         Alert alert = new Alert(type);
         alert.setTitle(title);
